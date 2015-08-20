@@ -1,0 +1,9 @@
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\ServerSnitch.exe.config
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.ProjectInstaller.resources
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.ServerSnitch.resources
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.csproj.GenerateResource.Cache
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\ServerSnitch.exe
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\ServerSnitch.pdb
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\Microsoft.Web.Administration.dll
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.exe
+c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.pdb
