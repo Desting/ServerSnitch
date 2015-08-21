@@ -17,23 +17,23 @@ namespace ServerSnitch.Controllers
             IisHandler iisHandler = new IisHandler();
             EnvironmentHandler envHandler = new EnvironmentHandler();
 
-
+            //Initialize server manager
             ServerManager server = new ServerManager();
 
             EnvironmentData environment = envHandler.GetEnvironmentData();
 
             Version iisVersion = iisHandler.GetIisVersion(environment);
-            //Version iisVersion = GetIisVersion(environment);
 
             List<string> values = environment.GetAllValues();
             System.IO.File.WriteAllLines(@"C:\Users\Public\Environment.txt", values);
 
             if (environment.hasIis)
             {
+                //Write it to file
+
                IisData iis = iisHandler.CreateIisDataObject(server, iisVersion);
                 iisHandler.logWebsitesAndPools(iis);
 
-                //Write it to file
 
             }
 

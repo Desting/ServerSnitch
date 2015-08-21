@@ -31,12 +31,25 @@ namespace ServerSnitch.Model
         {
             List<string> values = new List<string>();
             values.Add("GENERAL INFORMATION:");
-            values.Add("Machine name: " + machineName);
-            values.Add("Domain name: " + domainName);
-            values.Add("User name: " + userName);
-            values.Add("OS Version: " + osVersion);
-            values.Add("LogTime: " + logTime);
-            values.Add("Has IS: " + hasIis.ToString());
+            values.Add("");
+            values.Add("Machine name: ");
+            values.Add(machineName);
+            values.Add("");
+
+            values.Add("Domain name: ");
+            values.Add(domainName);
+            values.Add("");
+            values.Add("User name: ");
+            values.Add(userName);
+            values.Add("");
+            values.Add("OS Version: ");
+            values.Add(osVersion);
+            values.Add("");
+            values.Add("LogTime: ");
+            values.Add(logTime);
+            values.Add("");
+            values.Add("Has IS: ");
+            values.Add(hasIis.ToString());
 
 
             return values;

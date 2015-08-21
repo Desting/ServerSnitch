@@ -45,7 +45,7 @@ namespace ServerSnitch.Handlers
         public void logWebsitesAndPools(IisData iis)
         {
             //List<String> siteNames = new List<string>();
-            List<String> sitePoolConnection = new List<string>();
+            List<String> testList = new List<string>();
             List<String> appliPools = new List<string>();
 
             foreach (Site site in iis.sites)
@@ -55,26 +55,56 @@ namespace ServerSnitch.Handlers
                 appliPools.Add(site.ToString());
                 appliPools.Add("");
 
+                ObjectState siteState = site.State;
+                appliPools.Add("STATE: ");
+                appliPools.Add(siteState.ToString());
+                appliPools.Add("");
+
+                appliPools.Add("BINDINGS: ");
+                BindingCollection bindings = site.Bindings;
+                foreach (Microsoft.Web.Administration.Binding binding in bindings)
+                {
+                    appliPools.Add(binding.ToString());
+                }
+                appliPools.Add("");
 
                 ApplicationDefaults defaults = site.ApplicationDefaults;
 
                 //get the name of the ApplicationPool under which the Site runs
                 string appPoolName = defaults.ApplicationPoolName;
-                appliPools.Add("PARENT:");
+                appliPools.Add("PARENT POOL:");
                 appliPools.Add(appPoolName);
                 appliPools.Add("");
 
 
                 appliPools.Add("APPLICATION POOLS: ");
-
+                appliPools.Add("");
+                appliPools.Add("----");
 
                 //Get the list of all Applications for this Site
                 ApplicationCollection applications = site.Applications;
                 foreach (Microsoft.Web.Administration.Application application in applications)
                 {
+                    appliPools.Add("POOL: ");
+
                     //get the name of the ApplicationPool
                     string applicationPoolName = application.ApplicationPoolName;
                     appliPools.Add(applicationPoolName);
+                    appliPools.Add("");
+
+
+                    appliPools.Add("DIRECTORIES: ");
+
+                    VirtualDirectoryCollection directories = application.VirtualDirectories;
+                    foreach (VirtualDirectory directory in directories)
+                    {
+                        appliPools.Add(directory.ToString());
+                        //put code here to work with each VirtualDirectory
+                    }
+                    appliPools.Add("");
+                    appliPools.Add("----");
+                    appliPools.Add("");
+
                 }
                 appliPools.Add("");
                 appliPools.Add("---------------------------------------");
