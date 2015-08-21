@@ -52,6 +52,7 @@
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Handlers\EnvironmentHandler.cs" />
     <Compile Include="Handlers\IisHandler.cs" />
+    <Compile Include="Handlers\ServiceHandler.cs" />
     <Compile Include="Model\EnvironmentData.cs" />
     <Compile Include="Model\IisData.cs" />
     <Compile Include="ProjectInstaller.cs">
