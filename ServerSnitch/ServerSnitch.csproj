@@ -55,6 +55,7 @@
     <Compile Include="Handlers\ServiceHandler.cs" />
     <Compile Include="Model\EnvironmentData.cs" />
     <Compile Include="Model\IisData.cs" />
+    <Compile Include="Model\ServiceData.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -72,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">

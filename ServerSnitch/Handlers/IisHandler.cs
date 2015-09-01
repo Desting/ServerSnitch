@@ -48,6 +48,12 @@ namespace ServerSnitch.Handlers
             List<String> testList = new List<string>();
             List<String> appliPools = new List<string>();
 
+            appliPools.Add("IIS Version: " + iis.IisVersion.ToString());
+            appliPools.Add("--------------------------");
+            appliPools.Add("");
+
+
+
             foreach (Site site in iis.sites)
             {
                 //siteNames.Add(site.ToString());

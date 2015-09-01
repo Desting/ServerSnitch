@@ -9,6 +9,11 @@ namespace ServerSnitch.Model
 {
     class IisData
     {
+
+        string version;
+        
+
+
         public Version IisVersion { get; set; }
         public ApplicationPoolCollection applicationPools { get; set; }
         public SiteCollection sites { get; set; }
@@ -25,23 +30,6 @@ namespace ServerSnitch.Model
             this.sites = sites;
         }
 
-        public List<string> GetAllValues()
-        {
-            List<string> values = new List<string>();
-            values.Add("SITES:");
-            foreach (Site site in sites)
-            {
-                ApplicationCollection applications = site.Applications;
-                foreach (Microsoft.Web.Administration.Application application in applications)
-                {
-                    //get the name of the ApplicationPool
-                    string applicationPoolName = application.ApplicationPoolName;
-                    values.Add(applicationPoolName);
-                }
-            }
-
-
-            return values;
-        }
+        
     }
 }

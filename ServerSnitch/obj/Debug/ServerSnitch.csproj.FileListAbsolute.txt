@@ -7,4 +7,3 @@ c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch
 c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\Microsoft.Web.Administration.dll
 c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.exe
 c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.pdb
-C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.csprojResolveAssemblyReference.cache

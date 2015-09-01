@@ -3,21 +3,29 @@ using ServerSnitch.Handlers;
 using ServerSnitch.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ServerSnitch.Controllers
 {
     class Controller
     {
+        static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
+
         public void Run()
         {
             //Initialize handlers
             IisHandler iisHandler = new IisHandler();
             EnvironmentHandler envHandler = new EnvironmentHandler();
+            ServiceHandler serHandler = new ServiceHandler();
 
             //Initialize server manager
             ServerManager server = new ServerManager();
@@ -29,6 +37,9 @@ namespace ServerSnitch.Controllers
             List<string> values = environment.GetAllValues();
             System.IO.File.WriteAllLines(@"C:\Users\Public\Environment.txt", values);
 
+            //Applications:
+            serHandler.LogServices();
+
             if (environment.hasIis)
             {
                 //Write it to file
@@ -38,137 +49,100 @@ namespace ServerSnitch.Controllers
 
 
             }
-            List<string> serviceNames = new List<string>();
-            serviceNames.Add("SERVICES:");
-            serviceNames.Add("");
 
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("START:");
+            // FIND DATABASES
 
-            ServiceController[] services = ServiceController.GetServices();
-            foreach (var service in services) 
+            // Start with drives if you have to search the entire computer.
+            List<string> databases = new List<string>();
+ 
+
+            string[] drives = System.Environment.GetLogicalDrives();
+
+            foreach (string dr in drives)
             {
+                System.IO.DriveInfo di = new System.IO.DriveInfo(dr);
 
-                serviceNames.Add("DISPLAY NAME:");
-                serviceNames.Add(service.DisplayName);
-                serviceNames.Add("");
-                
-             
-
-            serviceNames.Add("NAME:");
-            serviceNames.Add(service.ServiceName);
-            serviceNames.Add("");
-
-
-            ManagementObject wmiService;
-            wmiService = new ManagementObject("Win32_Service.Name='" + service.ServiceName + "'");
-            wmiService.Get();
-
-            serviceNames.Add("LOG ON AS:");
-            if (wmiService["StartName"] != null)
+                // Here we skip the drive if it is not ready to be read. This 
+                // is not necessarily the appropriate action in all scenarios. 
+                if (!di.IsReady)
                 {
-                    serviceNames.Add(wmiService["StartName"].ToString());
-                
+                    Console.WriteLine("The drive {0} could not be read", di.Name);
+                    continue;
                 }
-                else
-                {
-                    serviceNames.Add("-");
+                System.IO.DirectoryInfo rootDir = di.RootDirectory;
+                WalkDirectoryTree(rootDir, databases);
+            }
 
+            // Write out all the files that could not be processed.
+            Console.WriteLine("Files with restricted access:");
+            foreach (string s in log)
+            {
+                Console.WriteLine(s);
+            }
+            // Keep the console window open in debug mode.
+            System.IO.File.WriteAllLines(@"C:\Users\Public\Databases.txt", databases);
+
+
+
+           
+            }
+
+        static void WalkDirectoryTree(System.IO.DirectoryInfo root, List<string> databases)
+        {
+            System.IO.FileInfo[] files = null;
+            System.IO.DirectoryInfo[] subDirs = null;
+
+            // First, process all the files directly under this folder 
+            try
+            {
+                files = root.GetFiles("*.mdf*");
+            }
+            // This is thrown if even one of the files requires permissions greater 
+            // than the application provides. 
+            catch (UnauthorizedAccessException e)
+            {
+                // This code just writes out the message and continues to recurse. 
+                // You may decide to do something different here. For example, you 
+                // can try to elevate your privileges and access the file again.
+                log.Add(e.Message);
+            }
+
+            catch (System.IO.DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            if (files != null)
+            {
+                foreach (System.IO.FileInfo fi in files)
+                {
+                    // In this example, we only access the existing FileInfo object. If we 
+                    // want to open, delete or modify the file, then 
+                    // a try-catch block is required here to handle the case 
+                    // where the file has been deleted since the call to TraverseTree().
+                    Console.WriteLine(fi.FullName);
+                    Console.WriteLine(fi.Name);
+                    databases.Add(fi.Name);
+
+
+                    
                 }
 
+                // Now find all the subdirectories under this directory.
+                subDirs = root.GetDirectories();
 
-            serviceNames.Add("");
-
-
-
-
-            serviceNames.Add("DESCRIPTION:");
-            if (wmiService["Description"] != null)
-            {
-                serviceNames.Add(wmiService["Description"].ToString());
-            }
-            else 
-            {
-                serviceNames.Add("-");
-            }
-            serviceNames.Add("");
-
-            serviceNames.Add("TYPE:");
-            serviceNames.Add(service.ServiceType.ToString());
-            serviceNames.Add("");
-
-            serviceNames.Add("STATUS:");
-            serviceNames.Add(service.Status.ToString());
-            serviceNames.Add("");
-
-            serviceNames.Add("DEPENDS ON:");
-
-            ServiceController[] temp = service.ServicesDependedOn;
-
-            if (temp.Length > 0)
-            {
-                foreach (var x in temp)
+                foreach (System.IO.DirectoryInfo dirInfo in subDirs)
                 {
-                    serviceNames.Add(x.ServiceName);
-                }
-            }
-            else 
-            {
-                serviceNames.Add("Nothing");
-            }
-            serviceNames.Add("");
-
-
-                
-            
-            //serviceNames.Add(service.ServicesDependedOn.ToString());
-            //serviceNames.Add("");
-
-            serviceNames.Add("-----");
-                
-            }
-
-            System.IO.File.WriteAllLines(@"C:\Users\Public\Services.txt", serviceNames);
-
-
-            if (environment.hasApplication)
-            {
-                //Write it to file
-            }
-
-            if (environment.hasDatabase)
-            {
-                //Write it to file
-            }
-
-
-            ServiceController[] scServices;
-            scServices = ServiceController.GetServices();
-
-            // Display the list of services currently running on this computer.
-
-            Console.WriteLine("Services running on the local computer:");
-            foreach (ServiceController scTemp in scServices)
-            {
-                if (scTemp.Status == ServiceControllerStatus.Running)
-                {
-                    // Write the service name and the display name 
-                    // for each running service.
-                    Console.WriteLine();
-                    Console.WriteLine("  Service :        {0}", scTemp.ServiceName);
-                    Console.WriteLine("    Display name:    {0}", scTemp.DisplayName);
-
-                    // Query WMI for additional information about this service. 
-                    // Display the start name (LocalSytem, etc) and the service 
-                    // description.
-                    ManagementObject wmiService;
-                    wmiService = new ManagementObject("Win32_Service.Name='" + scTemp.ServiceName + "'");
-                    wmiService.Get();
-                    Console.WriteLine("    Start name:      {0}", wmiService["StartName"]);
-                    Console.WriteLine("    Description:     {0}", wmiService["Description"]);
+                    // Resursive call for each subdirectory.
+                    WalkDirectoryTree(dirInfo, databases);
                 }
             }
+        }
 
 
         }
 
     }
-}
+
