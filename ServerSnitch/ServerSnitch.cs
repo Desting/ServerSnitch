@@ -14,14 +14,23 @@ namespace ServerSnitch
 {
     public partial class ServerSnitch : ServiceBase
     {
-        
+        System.Timers.Timer _timer;
+        DateTime _scheduleTime;
+
+        int count;
+
         public ServerSnitch()
         {
             InitializeComponent();
+            _timer = new System.Timers.Timer();
+            //_scheduleTime = DateTime.Today.AddDays(1).AddHours(7); // Schedule to run once a day at 7:00 a.m.
+            _scheduleTime = DateTime.Today.AddDays(1).AddHours(11).AddMinutes(31);
+            
         }
 
         protected override void OnStart(string[] args)
         {
+            
             ServiceStart();
         }
 
@@ -42,9 +51,42 @@ namespace ServerSnitch
             serviceStatus.dwCurrentState = ServiceState.SERVICE_RUNNING;
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
 
-            //Real magic:
-            Controller control = new Controller();
-            control.Run();
+
+            _timer.Enabled = true;
+            _timer.Interval = _scheduleTime.Subtract(DateTime.Now).TotalSeconds * 1000;
+            _timer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
+            _timer.Start();
+
+           
+        }
+
+        protected void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            // 1. Process Schedule Task
+            // ----------------------------------
+            // Add code to Process your task here
+            // ----------------------------------
+
+            // Real magic:
+            //Controller control = new Controller();
+            //control.Run();
+
+            count++;
+
+            // 2. If tick for the first time, reset next run to every 24 hours
+            //if (_timer.Interval != 24 * 60 * 60 * 1000)
+            //{
+            //    _timer.Interval = 24 * 60 * 60 * 1000;
+            //    count = 1;
+            //} 
+            if (_timer.Interval !=  60 * 1000)
+            {
+                _timer.Interval =  60 * 1000;
+                count = 1;
+            }
+            Console.WriteLine(count);
+            System.IO.File.WriteAllText(@"C:\Users\Public\Time.txt", count.ToString() + " " + DateTime.Now.TimeOfDay.ToString());
+
         }
 
         [DllImport("advapi32.dll", SetLastError = true)]
