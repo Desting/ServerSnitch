@@ -1,9 +1,11 @@
 ﻿using Microsoft.Web.Administration;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using ServerSnitch.Model;
 using ServerSnitch.Model.IIS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +15,8 @@ namespace ServerSnitch.Handlers
     class IisHandler
     {
 
-        public IISData StoreIISData(ServerManager server, Version IisVersion) 
-        {
-            IISData iis = new IISData();
-            
 
-            return iis;
-        }
-
-
-        public IISData CreateIisDataObject(ServerManager server, Version IisVersion) 
+        public IISData CreateIisDataObject(ServerManager server, Version IisVersion)
         {
             ApplicationPoolCollection applicationPools = server.ApplicationPools;
             SiteCollection sites = server.Sites;
@@ -52,98 +46,122 @@ namespace ServerSnitch.Handlers
             }
         }
 
-        public void logWebsitesAndPools(IISData iis)
+        public void StoreIIS(IISData iis)
         {
-            //List<String> siteNames = new List<string>();
-            List<String> appliPools = new List<string>();
 
-            appliPools.Add("IIS Version: " + iis.IisVersion.ToString());
-            appliPools.Add("--------------------------");
-            appliPools.Add("");
-            iis.IISVersion = iis.IisVersion.ToString();
+            IISStringContainer container = new IISStringContainer();
 
-            Website website = new Website();
+            // Store IIS Version
+            container.IISVersion = iis.IisVersion.ToString();
+
+            // Store Websites 
+            List<Website> websites = ListWebsites(iis);
+            container.websites = websites;
+
+
+            string json = JsonConvert.SerializeObject(container);
+            System.IO.File.WriteAllText(@"C:\Users\Public\jsonIIS.txt", json);
+
+        }
+
+        List<Website> ListWebsites(IISData iis) 
+        {
+            List<Website> websites = new List<Website>();
 
             foreach (Site site in iis.sites)
             {
+                Website website = new Website();
+
+                // Store the Name of the Site.
                 website.siteName = site.ToString();
+
+                // Store the State of the Site.
                 website.state = site.State.ToString();
-                
 
-                //siteNames.Add(site.ToString());
-                appliPools.Add("SITE: ");
-                appliPools.Add(site.ToString());
-                appliPools.Add("");
 
-                ObjectState siteState = site.State;
-                appliPools.Add("STATE: ");
-                appliPools.Add(siteState.ToString());
-                appliPools.Add("");
-
-                List<String> bindingsList = new List<string>();
-
-                appliPools.Add("BINDINGS: ");
+                // Get the list of all Bindings for this site.
                 BindingCollection bindings = site.Bindings;
-                foreach (Microsoft.Web.Administration.Binding binding in bindings)
-                {
-                    appliPools.Add(binding.ToString());
-                    bindingsList.Add(binding.ToString());
-                }
+                List<String> bindingsList = ListBindings(bindings);
+
+                // Store the Bindings.
                 website.bindings = bindingsList;
 
-                appliPools.Add("");
 
                 ApplicationDefaults defaults = site.ApplicationDefaults;
 
-                //get the name of the ApplicationPool under which the Site runs
+                // Get the name of the ApplicationPool under which the Site runs.
                 string appPoolName = defaults.ApplicationPoolName;
-                appliPools.Add("PARENT POOL:");
-                appliPools.Add(appPoolName);
-                appliPools.Add("");
-
                 website.parentPool = appPoolName;
 
 
-                appliPools.Add("APPLICATION POOLS: ");
-                appliPools.Add("");
-                appliPools.Add("----");
-
-                ApplicationPoolCustom aPool = new ApplicationPoolCustom();
-                //Get the list of all Applications for this Site
+                // Get the list of all Applications for this Site.
                 ApplicationCollection applications = site.Applications;
-                foreach (Microsoft.Web.Administration.Application application in applications)
-                {
-                    appliPools.Add("POOL: ");
+                List<ApplicationPoolCustom> custPools = ListApplicationPools(applications);
 
-                    
-                    //get the name of the ApplicationPool
-                    string applicationPoolName = application.ApplicationPoolName;
-                    appliPools.Add(applicationPoolName);
-                    appliPools.Add("");
-                    aPool.poolName = applicationPoolName;
+                website.applicationPools = custPools;
+                websites.Add(website);
 
-                    appliPools.Add("DIRECTORIES: ");
-
-                    VirtualDirectoryCollection directories = application.VirtualDirectories;
-                    foreach (VirtualDirectory directory in directories)
-                    {
-                        aPool.directories.Add(directory.ToString());
-                        appliPools.Add(directory.ToString());
-                        //put code here to work with each VirtualDirectory
-                    }
-                    appliPools.Add("");
-                    appliPools.Add("----");
-                    appliPools.Add("");
-                    website.applicationPools.Add(aPool);
-                }
-                appliPools.Add("");
-                appliPools.Add("---------------------------------------");
-                appliPools.Add("");
             }
 
-            System.IO.File.WriteAllLines(@"C:\Users\Public\Sites.txt", appliPools);
-
+            return websites;
         }
+
+        List<ApplicationPoolCustom> ListApplicationPools(ApplicationCollection applications) 
+        {
+            List<ApplicationPoolCustom> pools = new List<ApplicationPoolCustom>();
+
+            // Go through each Application.
+            foreach (Microsoft.Web.Administration.Application application in applications)
+            {
+                ApplicationPoolCustom pool = new ApplicationPoolCustom();
+                
+                // Store Pool Name.
+                pool.poolName = application.ApplicationPoolName;
+
+                // Get all Directories associated.
+                VirtualDirectoryCollection directories = application.VirtualDirectories;
+                List<string> dirs = ListDirectivesNames(directories);
+
+                // Store list of Directories.
+                pool.directories = dirs;
+
+                // Add Pool to list of Pools.
+                pools.Add(pool);
+            }
+
+            return pools;
+        }
+
+
+
+        List<string> ListDirectivesNames(VirtualDirectoryCollection directories) 
+        {
+            List<string> dirs = new List<string>();
+
+            // Go through each Directory.
+            foreach (VirtualDirectory directory in directories)
+            {
+                // Store Directory Name.
+                dirs.Add(directory.ToString());
+            }
+            return dirs;
+        }
+
+        List<string> ListBindings(BindingCollection bindings) 
+        {
+            List<string> binds = new List<string>();
+
+            // Go through each Binding.
+            foreach (Microsoft.Web.Administration.Binding binding in bindings)
+            {
+                // Store Binding name.
+                binds.Add(binding.ToString());
+            }
+
+            return binds;
+        }
+
+        
 
     }
 }

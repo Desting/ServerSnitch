@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ServerSnitch.Model
 {
+    
     class EnvironmentData
     {
+        
         public string machineName { get; set; }
         public string domainName { get; set; }
         public string userName { get; set; }
@@ -15,8 +17,8 @@ namespace ServerSnitch.Model
         public string logTime { get; set; }
 
         public bool hasIis { get; set; }
-        public bool hasDatabase { get; set; }
-        public bool hasApplication { get; set; }
+        //public bool hasDatabase { get; set; }
+        //public bool hasApplication { get; set; }
 
         public EnvironmentData(string machineName, string domainName, string userName, string osVersion, string logTime)
         {

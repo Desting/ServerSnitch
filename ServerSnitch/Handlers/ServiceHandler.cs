@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ServerSnitch.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -12,89 +14,67 @@ namespace ServerSnitch.Handlers
 
         public void LogServices() 
         {
-            List<string> serviceNames = new List<string>();
-            serviceNames.Add("SERVICES:");
-            serviceNames.Add("");
+            List<ServiceData> serviceList = new List<ServiceData>();
 
 
             ServiceController[] services = ServiceController.GetServices();
             foreach (var service in services)
             {
+                ServiceData serviceData = new ServiceData();
 
-                serviceNames.Add("DISPLAY NAME:");
-                serviceNames.Add(service.DisplayName);
-                serviceNames.Add("");
-
-
-
-                serviceNames.Add("NAME:");
-                serviceNames.Add(service.ServiceName);
-                serviceNames.Add("");
-
+                serviceData.displayName = service.DisplayName;
+                serviceData.systemName = service.ServiceName;
 
                 ManagementObject wmiService;
                 wmiService = new ManagementObject("Win32_Service.Name='" + service.ServiceName + "'");
                 wmiService.Get();
 
-                serviceNames.Add("LOG ON AS:");
                 if (wmiService["StartName"] != null)
                 {
-                    serviceNames.Add(wmiService["StartName"].ToString());
+                    serviceData.logon = wmiService["StartName"].ToString();
 
                 }
                 else
                 {
-                    serviceNames.Add("-");
+                    serviceData.logon = "";
 
                 }
 
 
-                serviceNames.Add("");
-
-
-
-
-                serviceNames.Add("DESCRIPTION:");
                 if (wmiService["Description"] != null)
                 {
-                    serviceNames.Add(wmiService["Description"].ToString());
+                    serviceData.description = wmiService["Description"].ToString();
                 }
                 else
                 {
-                    serviceNames.Add("-");
+                    serviceData.description = "";
                 }
-                serviceNames.Add("");
+                serviceData.type = service.ServiceType.ToString();
+                serviceData.status = service.Status.ToString();
 
-                serviceNames.Add("TYPE:");
-                serviceNames.Add(service.ServiceType.ToString());
-                serviceNames.Add("");
 
-                serviceNames.Add("STATUS:");
-                serviceNames.Add(service.Status.ToString());
-                serviceNames.Add("");
-
-                serviceNames.Add("DEPENDS ON:");
+                List<string> dependencies = new List<string>();
 
                 ServiceController[] temp = service.ServicesDependedOn;
-
                 if (temp.Length > 0)
                 {
                     foreach (var x in temp)
                     {
-                        serviceNames.Add(x.ServiceName);
+
+                        dependencies.Add(x.ServiceName);
                     }
                 }
                 else
                 {
-                    serviceNames.Add("Nothing");
+                    dependencies.Add("Nothing");
                 }
-                serviceNames.Add("");
 
-                serviceNames.Add("-----");
+                serviceData.dependencies = dependencies;
 
+                serviceList.Add(serviceData);
             }
-
-            System.IO.File.WriteAllLines(@"C:\Users\Public\Services.txt", serviceNames);
+            string json = JsonConvert.SerializeObject(serviceList);
+            System.IO.File.WriteAllText(@"C:\Users\Public\JSONServices.txt", json);
         
         }
 

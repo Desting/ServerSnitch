@@ -13,7 +13,7 @@ namespace ServerSnitch.Model
         public string description { get; set; }
         public string type { get; set; }
         public string status { get; set; }
-        public string[] dependencies { get; set; }
+        public List<string> dependencies { get; set; }
 
 
     }

@@ -9,14 +9,7 @@ namespace ServerSnitch.Model
 {
     class IISData
     {
-        public string IISVersion { get; set; }
-        public List<Site> websites { get; set; }
-
-        public IISData(string IISVersion, List<Site> websites)
-        {
-            this.IISVersion = IISVersion;
-            this.websites = websites;
-        }
+        
 
         //List<> sites;
         //Site:
