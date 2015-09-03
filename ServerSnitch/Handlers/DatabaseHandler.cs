@@ -9,10 +9,9 @@ namespace ServerSnitch.Handlers
     {
         static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
 
-        public void LogDatabases() 
+        public List<string> ListDatabases() 
         {
-            Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine("START:");
+            
             // FIND DATABASES
 
             // Start with drives if you have to search the entire computer.
@@ -21,6 +20,14 @@ namespace ServerSnitch.Handlers
 
             string[] drives = System.Environment.GetLogicalDrives();
 
+            ScanDrives(drives, databases);
+
+            return databases;
+        }
+
+
+        void ScanDrives(string[] drives, List<string> databases) 
+        {
             foreach (string dr in drives)
             {
                 System.IO.DriveInfo di = new System.IO.DriveInfo(dr);
@@ -42,8 +49,7 @@ namespace ServerSnitch.Handlers
             {
                 Console.WriteLine(s);
             }
-            // Keep the console window open in debug mode.
-            System.IO.File.WriteAllLines(@"C:\Users\Public\Databases.txt", databases);
+        
         }
 
 

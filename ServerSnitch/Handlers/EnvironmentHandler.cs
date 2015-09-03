@@ -1,4 +1,5 @@
-﻿using ServerSnitch.Model;
+﻿using Newtonsoft.Json;
+using ServerSnitch.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace ServerSnitch.Handlers
     class EnvironmentHandler
     {
 
+        public void SerializeAndStore(EnvironmentData environment) 
+        {
+            string json = JsonConvert.SerializeObject(environment);
+            System.IO.File.WriteAllText(@"C:\Users\Public\JSONEnvironment.txt", json);
+        }
 
         public EnvironmentData GetEnvironmentData()
         {

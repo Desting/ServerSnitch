@@ -9,12 +9,22 @@ namespace ServerSnitch.Parser
 {
     class JSONParser
     {
-        void yo() 
+
+        public JSONParser()
         {
-            //EnvironmentData data = new EnvironmentData();
-            //string json = JsonConvert.SerializeObject(data);
+
         }
 
+        public string SerializeObject(Object data) 
+        {
+            string json = JsonConvert.SerializeObject(data);
+            return json;
+        }
+
+        public void SaveToFile(string path, string json) 
+        {
+            System.IO.File.WriteAllText(path, json);
+        }
 
 
     }

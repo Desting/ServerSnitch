@@ -18,10 +18,9 @@ namespace ServerSnitch.Handlers
 
         public IISData CreateIisDataObject(ServerManager server, Version IisVersion)
         {
-            ApplicationPoolCollection applicationPools = server.ApplicationPools;
             SiteCollection sites = server.Sites;
 
-            IISData iis = new IISData(IisVersion, applicationPools, sites);
+            IISData iis = new IISData(IisVersion, sites);
 
             return iis;
         }
@@ -46,7 +45,7 @@ namespace ServerSnitch.Handlers
             }
         }
 
-        public void StoreIIS(IISData iis)
+        public IISStringContainer StoreIIS(IISData iis)
         {
 
             IISStringContainer container = new IISStringContainer();
@@ -58,9 +57,7 @@ namespace ServerSnitch.Handlers
             List<Website> websites = ListWebsites(iis);
             container.websites = websites;
 
-
-            string json = JsonConvert.SerializeObject(container);
-            System.IO.File.WriteAllText(@"C:\Users\Public\jsonIIS.txt", json);
+            return container;
 
         }
 

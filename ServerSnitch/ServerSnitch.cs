@@ -47,7 +47,7 @@ namespace ServerSnitch
 
             // Real magic:
             Controller control = new Controller();
-            control.Run();
+            control.ExtractAndSerializeData();
 
            
         }

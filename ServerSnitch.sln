@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSnitch", "ServerSnitch\ServerSnitch.csproj", "{58864335-E2B4-4FDA-91E7-C6245AC46255}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorService", "MonitorService\MonitorService.csproj", "{779A6C03-1913-4A1D-8685-729204E43AA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{58864335-E2B4-4FDA-91E7-C6245AC46255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58864335-E2B4-4FDA-91E7-C6245AC46255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58864335-E2B4-4FDA-91E7-C6245AC46255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779A6C03-1913-4A1D-8685-729204E43AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779A6C03-1913-4A1D-8685-729204E43AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779A6C03-1913-4A1D-8685-729204E43AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779A6C03-1913-4A1D-8685-729204E43AA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

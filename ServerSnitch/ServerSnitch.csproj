@@ -60,9 +60,10 @@
     <Compile Include="Handlers\ServiceHandler.cs" />
     <Compile Include="Model\EnvironmentData.cs" />
     <Compile Include="Model\IIS\ApplicationPoolCustom.cs" />
-    <Compile Include="Model\IIS\IISData.cs" />
+    <Compile Include="Model\IIS\Temp\IISData.cs" />
     <Compile Include="Model\IIS\IISStringContainer.cs" />
     <Compile Include="Model\IIS\Website.cs" />
+    <Compile Include="Model\MasterEntity.cs" />
     <Compile Include="Model\ServiceData.cs" />
     <Compile Include="Parser\JSONParser.cs" />
     <Compile Include="ProjectInstaller.cs">

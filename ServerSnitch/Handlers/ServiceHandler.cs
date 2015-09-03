@@ -12,7 +12,7 @@ namespace ServerSnitch.Handlers
     class ServiceHandler
     {
 
-        public void LogServices() 
+        public List<ServiceData> ListServices() 
         {
             List<ServiceData> serviceList = new List<ServiceData>();
 
@@ -66,15 +66,14 @@ namespace ServerSnitch.Handlers
                 }
                 else
                 {
-                    dependencies.Add("Nothing");
+                    dependencies.Add("None");
                 }
 
                 serviceData.dependencies = dependencies;
 
                 serviceList.Add(serviceData);
             }
-            string json = JsonConvert.SerializeObject(serviceList);
-            System.IO.File.WriteAllText(@"C:\Users\Public\JSONServices.txt", json);
+            return serviceList;
         
         }
 

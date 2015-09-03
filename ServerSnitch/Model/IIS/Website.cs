@@ -7,18 +7,6 @@ namespace ServerSnitch.Model.IIS
 {
     class Website
     {
-        //List<> sites;
-        //Site:
-        //name
-        //state
-        //parentPool
-        //List<> bindings
-        //    bindingName;
-        //List<> applicationPools
-        //    poolName
-        //    List<> directories 
-        //        directoryName
-
         public string siteName { get; set; }
         public string state { get; set; }
         public string parentPool { get; set; }

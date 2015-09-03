@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using ServerSnitch.Handlers;
 using ServerSnitch.Model;
+using ServerSnitch.Model.IIS;
+using ServerSnitch.Parser;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,12 +22,17 @@ namespace ServerSnitch.Controllers
 {
     class Controller
     {
+
         
-        public void Run()
+        public void ExtractAndSerializeData()
         {
+            // Initialize MasterEntity to hold data
+            MasterEntity dataStorage = new MasterEntity();
+
+
             // Initialize handlers
-            IisHandler iisHandler = new IisHandler();
             EnvironmentHandler envHandler = new EnvironmentHandler();
+            IisHandler iisHandler = new IisHandler();
             ServiceHandler serHandler = new ServiceHandler();
             DatabaseHandler datHandler = new DatabaseHandler();
 
@@ -34,27 +41,38 @@ namespace ServerSnitch.Controllers
 
             // Environment:
             EnvironmentData environment = envHandler.GetEnvironmentData();
-            string json = JsonConvert.SerializeObject(environment);
-            Console.WriteLine(json);
 
-
-
+            // Check for IIS:
             Version iisVersion = iisHandler.GetIisVersion(environment);
+            dataStorage.environment = environment;
 
-            List<string> values = environment.GetAllValues();
-
-            System.IO.File.WriteAllText(@"C:\Users\Public\JSONEnvironment.txt", json);
-            //System.IO.File.WriteAllLines(@"C:\Users\Public\Environment.txt", values);
-
-            // Applications:
-            serHandler.LogServices();
-
+            // IIS:
             if (environment.hasIis)
             {
                 IISData iis = iisHandler.CreateIisDataObject(server, iisVersion);
-                iisHandler.StoreIIS(iis);
+                IISStringContainer iisContainer = iisHandler.StoreIIS(iis);
+                dataStorage.iis = iisContainer;
+                
             }
-            //datHandler.LogDatabases();
+
+            // Applications:
+            List<ServiceData> applications = serHandler.ListServices();
+            dataStorage.applications = applications;
+
+            
+            // Databases:
+            //List<string> databases = datHandler.ListDatabases();
+            //dataStorage.databases = databases;
+            
+
+            // Serialize to JSON
+            JSONParser parser = new JSONParser();
+            string envJson = parser.SerializeObject(dataStorage);
+
+            // Save to file
+            string path = @"C:\Users\Public\JSONMaster.txt";
+            parser.SaveToFile(path, envJson);
+
         }
 
 
