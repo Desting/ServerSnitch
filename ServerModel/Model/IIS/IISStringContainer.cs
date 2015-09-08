@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Model.IIS
+namespace DataExtractor.Model.IIS
 {
-    class IISStringContainer
+    public class IISStringContainer
     {
         public string IISVersion { get; set; }
         public List<Website> websites { get; set; }

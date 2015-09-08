@@ -1,4 +1,4 @@
-﻿namespace ServerSnitch
+﻿namespace DataExtractor
 {
     partial class ProjectInstaller
     {
@@ -40,8 +40,8 @@
             // serviceInstaller1
             // 
             this.serviceInstaller1.Description = "Logs information about server";
-            this.serviceInstaller1.DisplayName = "AA ServerSnitch";
-            this.serviceInstaller1.ServiceName = "ServerSnitch";
+            this.serviceInstaller1.DisplayName = "DataExtractor";
+            this.serviceInstaller1.ServiceName = "DataExtractor";
             // 
             // ProjectInstaller
             // 

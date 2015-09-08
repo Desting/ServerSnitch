@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Handlers
+namespace DataExtractor.Handlers
 {
     class DatabaseHandler
     {

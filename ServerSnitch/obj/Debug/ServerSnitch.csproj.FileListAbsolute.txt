@@ -10,3 +10,5 @@ c:\users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\Newtonsoft.Json.dll
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\Newtonsoft.Json.xml
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\ServerSnitch.csprojResolveAssemblyReference.cache
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\ServerModel.dll
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\ServerModel.pdb

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSnitch", "ServerSnitch\ServerSnitch.csproj", "{58864335-E2B4-4FDA-91E7-C6245AC46255}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractor", "ServerSnitch\DataExtractor.csproj", "{58864335-E2B4-4FDA-91E7-C6245AC46255}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorService", "MonitorService\MonitorService.csproj", "{779A6C03-1913-4A1D-8685-729204E43AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerModel", "ServerModel\ServerModel.csproj", "{D03383C7-7B66-4D6F-BFA9-47C3E7F651C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{779A6C03-1913-4A1D-8685-729204E43AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{779A6C03-1913-4A1D-8685-729204E43AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779A6C03-1913-4A1D-8685-729204E43AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03383C7-7B66-4D6F-BFA9-47C3E7F651C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03383C7-7B66-4D6F-BFA9-47C3E7F651C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03383C7-7B66-4D6F-BFA9-47C3E7F651C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03383C7-7B66-4D6F-BFA9-47C3E7F651C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

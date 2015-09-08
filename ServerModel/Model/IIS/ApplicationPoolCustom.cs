@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Model.IIS
+namespace DataExtractor.Model.IIS
 {
-    class ApplicationPoolCustom
+   public class ApplicationPoolCustom
     {
         //    poolName
         //    List<> directories 

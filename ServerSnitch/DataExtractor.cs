@@ -8,14 +8,15 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using ServerSnitch.Controllers;
+using DataExtractor.Controllers;
+using System.Timers;
 
-namespace ServerSnitch
+namespace DataExtractor
 {
-    public partial class ServerSnitch : ServiceBase
+    public partial class DataExtractor : ServiceBase
     {
 
-        public ServerSnitch()
+        public DataExtractor()
         {
             InitializeComponent();
             
@@ -49,8 +50,14 @@ namespace ServerSnitch
             Controller control = new Controller();
             control.ExtractAndSerializeData();
 
+
+
+            
+
            
         }
+
+        
 
 
         [DllImport("advapi32.dll", SetLastError = true)]

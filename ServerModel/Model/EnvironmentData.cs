@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSnitch.Model
+namespace DataExtractor.Model
 {
     
-    class EnvironmentData
+    public class EnvironmentData
     {
         
         public string machineName { get; set; }

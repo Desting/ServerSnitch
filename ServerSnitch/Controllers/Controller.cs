@@ -1,9 +1,9 @@
 ﻿using Microsoft.Web.Administration;
 using Newtonsoft.Json;
-using ServerSnitch.Handlers;
-using ServerSnitch.Model;
-using ServerSnitch.Model.IIS;
-using ServerSnitch.Parser;
+using DataExtractor.Handlers;
+using DataExtractor.Model;
+using DataExtractor.Model.IIS;
+using DataExtractor.Parser;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ServerSnitch.Controllers
+namespace DataExtractor.Controllers
 {
     class Controller
     {
@@ -44,6 +44,8 @@ namespace ServerSnitch.Controllers
 
             // Check for IIS:
             Version iisVersion = iisHandler.GetIisVersion(environment);
+
+            // Save Environment to MasterEntity
             dataStorage.environment = environment;
 
             // IIS:
@@ -51,27 +53,32 @@ namespace ServerSnitch.Controllers
             {
                 IISData iis = iisHandler.CreateIisDataObject(server, iisVersion);
                 IISStringContainer iisContainer = iisHandler.StoreIIS(iis);
+
+                // Save IIS to MasterEntity
                 dataStorage.iis = iisContainer;
                 
             }
 
             // Applications:
             List<ServiceData> applications = serHandler.ListServices();
+
+            // Save Applications to MasterEntity
             dataStorage.applications = applications;
 
             
             // Databases:
             //List<string> databases = datHandler.ListDatabases();
             //dataStorage.databases = databases;
+
             
 
             // Serialize to JSON
             JSONParser parser = new JSONParser();
-            string envJson = parser.SerializeObject(dataStorage);
+            string json = parser.SerializeObject(dataStorage);
 
             // Save to file
             string path = @"C:\Users\Public\JSONMaster.txt";
-            parser.SaveToFile(path, envJson);
+            parser.SaveToFile(path, json);
 
         }
 

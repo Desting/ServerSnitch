@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Model.IIS
+namespace DataExtractor.Model.IIS
 {
-    class Website
+    public class Website
     {
         public string siteName { get; set; }
         public string state { get; set; }

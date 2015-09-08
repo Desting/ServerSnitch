@@ -1,0 +1,5 @@
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerModel\bin\Debug\ServerModel.dll
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerModel\bin\Debug\ServerModel.pdb
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerModel\bin\Debug\Microsoft.Web.Administration.dll
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerModel\obj\Debug\ServerModel.dll
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerModel\obj\Debug\ServerModel.pdb

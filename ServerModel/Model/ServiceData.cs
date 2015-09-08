@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Model
+namespace DataExtractor.Model
 {
-    class ServiceData
+    public class ServiceData
     {
         public string displayName { get; set; }
         public string systemName { get; set; }

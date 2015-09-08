@@ -1,8 +1,8 @@
 ﻿using Microsoft.Web.Administration;
 using Microsoft.Win32;
 using Newtonsoft.Json;
-using ServerSnitch.Model;
-using ServerSnitch.Model.IIS;
+using DataExtractor.Model;
+using DataExtractor.Model.IIS;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSnitch.Handlers
+namespace DataExtractor.Handlers
 {
     class IisHandler
     {

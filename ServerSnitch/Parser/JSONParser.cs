@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
-using ServerSnitch.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Parser
+namespace DataExtractor.Parser
 {
     class JSONParser
     {

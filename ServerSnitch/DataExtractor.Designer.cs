@@ -1,6 +1,6 @@
-﻿namespace ServerSnitch
+﻿namespace DataExtractor
 {
-    partial class ServerSnitch
+    partial class DataExtractor
     {
         /// <summary> 
         /// Required designer variable.

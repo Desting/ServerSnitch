@@ -5,7 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSnitch
+namespace DataExtractor
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ServerSnitch
         {
             if (Environment.UserInteractive)
             {
-                var x = new ServerSnitch();
+                var x = new DataExtractor();
                 x.ServiceStart();
             }
             else
@@ -24,7 +24,7 @@ namespace ServerSnitch
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[] 
             { 
-                new ServerSnitch() 
+                new DataExtractor() 
             };
                 ServiceBase.Run(ServicesToRun);
             }

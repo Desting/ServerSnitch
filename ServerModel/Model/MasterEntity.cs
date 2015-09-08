@@ -1,12 +1,12 @@
-﻿using ServerSnitch.Model.IIS;
+﻿using DataExtractor.Model.IIS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ServerSnitch.Model
+namespace DataExtractor.Model
 {
-    class MasterEntity
+    public class MasterEntity
     {
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }

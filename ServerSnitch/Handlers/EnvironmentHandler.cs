@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
-using ServerSnitch.Model;
+using DataExtractor.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSnitch.Handlers
+namespace DataExtractor.Handlers
 {
     class EnvironmentHandler
     {

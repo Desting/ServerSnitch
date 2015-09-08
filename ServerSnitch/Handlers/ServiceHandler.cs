@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using ServerSnitch.Model;
+using DataExtractor.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Management;
 using System.ServiceProcess;
 using System.Text;
 
-namespace ServerSnitch.Handlers
+namespace DataExtractor.Handlers
 {
     class ServiceHandler
     {
