@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DataExtractor.Model;
+using MonitorService.Handlers;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,11 +13,18 @@ namespace MonitorService.Controllers
     public class ServerDataController : ApiController
     {
 
-        public string Post([FromBody] string content)
+        public object Post([FromBody] MasterEntity content)
         {
-            System.IO.File.WriteAllText(@"C:\Users\Public\Recieved.txt", content);
-            return "OK";
+            using (var db = new DBHandler()) 
+            {
+                db.Servers.Add(content);
+                db.SaveChanges();
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, "OK");
         }
 
     }
+
+
 }

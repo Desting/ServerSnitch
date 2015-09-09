@@ -83,23 +83,18 @@ namespace DataExtractor.Controllers
             string path = @"C:\Users\Public\JSONMaster.txt";
             parser.SaveToFile(path, json);
 
-            var response = Http.Post("http://localhost:62273/api/ServerData", "Hello World");
+
+            // HTTP POST
+            HTTPHandler http = new HTTPHandler();
+            
+            // this is where we will send it
+            string uri = "http://localhost:62273/api/ServerData";
+            http.PostMasterEntity(uri, json);
+
 
 
         }
 
-        public static class Http
-        {
-            public static string Post(string uri, string content)
-            {
-                string response = null;
-                using (WebClient client = new WebClient())
-                {
-                    response = client.UploadString(uri, content);
-                }
-                return response;
-            }
-        }
 
 
 
