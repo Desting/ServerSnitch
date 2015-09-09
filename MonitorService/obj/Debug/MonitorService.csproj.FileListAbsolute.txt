@@ -61,3 +61,4 @@ C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\MonitorServi
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\MonitorService\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\MonitorService\obj\Debug\MonitorService.dll
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\MonitorService\obj\Debug\MonitorService.pdb
+C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\MonitorService\obj\Debug\MonitorService.csprojResolveAssemblyReference.cache

@@ -17,6 +17,9 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net;
+using System.Runtime.Serialization;
+using System.Net.Http;
 
 namespace DataExtractor.Controllers
 {
@@ -80,6 +83,22 @@ namespace DataExtractor.Controllers
             string path = @"C:\Users\Public\JSONMaster.txt";
             parser.SaveToFile(path, json);
 
+            var response = Http.Post("http://localhost:62273/api/ServerData", "Hello World");
+
+
+        }
+
+        public static class Http
+        {
+            public static string Post(string uri, string content)
+            {
+                string response = null;
+                using (WebClient client = new WebClient())
+                {
+                    response = client.UploadString(uri, content);
+                }
+                return response;
+            }
         }
 
 
