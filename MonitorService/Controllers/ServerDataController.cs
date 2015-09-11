@@ -15,6 +15,9 @@ namespace MonitorService.Controllers
 
         public object Post([FromBody] MasterEntity content)
         {
+            var json = this.Request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(json);
+
             using (var db = new DBHandler()) 
             {
                 db.Servers.Add(content);

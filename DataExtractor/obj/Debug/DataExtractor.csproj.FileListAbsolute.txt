@@ -28,8 +28,6 @@ C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\System.Threading.Tasks.xml
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\DataExtractor.csproj.App.config
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.exe.config
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.exe
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.exe
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\Microsoft.Web.Administration.dll
@@ -42,6 +40,7 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtract
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Net.Http.WebRequest.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Runtime.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Threading.Tasks.dll
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\EntityFramework.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerModel.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\Newtonsoft.Json.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.IO.xml
@@ -51,8 +50,11 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtract
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Net.Http.WebRequest.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Runtime.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\System.Threading.Tasks.xml
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\EntityFramework.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csproj.App.config
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csprojResolveAssemblyReference.cache
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.ProjectInstaller.resources
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.DataExtractor.resources
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csproj.GenerateResource.Cache
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.exe
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.pdb
