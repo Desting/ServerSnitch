@@ -80,8 +80,8 @@ namespace DataExtractor.Controllers
             string json = parser.SerializeObject(dataStorage);
 
             // Save to file
-            string path = @"C:\Users\Public\JSONMaster.txt";
-            parser.SaveToFile(path, json);
+            //string path = @"C:\Users\Public\JSONMaster.txt";
+            //parser.SaveToFile(path, json);
 
 
             // HTTP POST

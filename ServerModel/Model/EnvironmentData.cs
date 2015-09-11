@@ -10,6 +10,7 @@ namespace DataExtractor.Model
     public class EnvironmentData
     {
         
+
         public string machineName { get; set; }
         public string domainName { get; set; }
         public string userName { get; set; }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             // 
-            // ServerSnitch
+            // Atea.DBS.DataExtractor
             // 
-            this.ServiceName = "ServerSnitch";
+            this.ServiceName = "Atea.DBS.DataExtractor";
 
         }
 

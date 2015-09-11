@@ -27,9 +27,9 @@ C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\System.Runtime.xml
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\bin\Debug\System.Threading.Tasks.xml
 C:\Users\extnizi\documents\visual studio 2012\Projects\ServerSnitch\ServerSnitch\obj\Debug\DataExtractor.csproj.App.config
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.exe.config
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.exe
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerSnitch.pdb
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\DataExtractor.exe.config
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\DataExtractor.exe
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\DataExtractor.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\Microsoft.Web.Administration.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\Newtonsoft.Json.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\ServerModel.dll
@@ -56,5 +56,5 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtract
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.ProjectInstaller.resources
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.DataExtractor.resources
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csproj.GenerateResource.Cache
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.exe
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\ServerSnitch.pdb
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.exe
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.pdb

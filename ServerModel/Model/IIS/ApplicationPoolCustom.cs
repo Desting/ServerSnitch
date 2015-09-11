@@ -12,9 +12,6 @@ namespace DataExtractor.Model.IIS
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        //    poolName
-        //    List<> directories 
-        //        directoryName
         public string poolName { get; set; }
         public List<string> directories { get; set; }
 
