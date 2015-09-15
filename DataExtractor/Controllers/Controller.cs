@@ -25,7 +25,11 @@ namespace DataExtractor.Controllers
 {
     class Controller
     {
-
+        private string uri;
+        public Controller(string uri)
+        {
+            this.uri = uri;
+        }
         
         public void ExtractAndSerializeData()
         {
@@ -68,12 +72,9 @@ namespace DataExtractor.Controllers
             // Save Applications to MasterEntity
             dataStorage.applications = applications;
 
-            
             // Databases:
             //List<string> databases = datHandler.ListDatabases();
             //dataStorage.databases = databases;
-
-            
 
             // Serialize to JSON
             JSONParser parser = new JSONParser();
@@ -88,7 +89,6 @@ namespace DataExtractor.Controllers
             HTTPHandler http = new HTTPHandler();
             
             // this is where we will send it
-            string uri = "http://localhost:62273/api/ServerData";
             http.PostMasterEntity(uri, json);
 
 

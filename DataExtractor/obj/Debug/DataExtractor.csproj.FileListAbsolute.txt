@@ -53,8 +53,5 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtract
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\bin\Debug\EntityFramework.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csproj.App.config
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csprojResolveAssemblyReference.cache
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.ProjectInstaller.resources
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.DataExtractor.resources
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.csproj.GenerateResource.Cache
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.exe
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\DataExtractor\obj\Debug\DataExtractor.pdb

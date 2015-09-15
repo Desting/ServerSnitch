@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataExtractor.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
@@ -14,20 +15,11 @@ namespace DataExtractor
         /// </summary>
         static void Main()
         {
-            if (Environment.UserInteractive)
-            {
-                var x = new DataExtractor();
-                x.ServiceStart();
-            }
-            else
-            {
-                ServiceBase[] ServicesToRun;
-                ServicesToRun = new ServiceBase[] 
-            { 
-                new DataExtractor() 
-            };
-                ServiceBase.Run(ServicesToRun);
-            }
+            var uri = System.Configuration.ConfigurationManager.AppSettings["serviceURL"];
+            Controller control = new Controller(uri);
+            control.ExtractAndSerializeData();
+
+            
         }
     }
 }

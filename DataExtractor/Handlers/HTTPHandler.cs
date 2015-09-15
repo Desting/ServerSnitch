@@ -12,16 +12,13 @@ namespace DataExtractor.Handlers
 
         public HTTPHandler()
         {
-
         }
-
 
         public void PostMasterEntity(string uri, string json) 
         {
-            
             // create a request
-            HttpWebRequest request = (HttpWebRequest)
-            WebRequest.Create(uri); request.KeepAlive = false;
+            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(uri); 
+            request.KeepAlive = false;
             request.ProtocolVersion = HttpVersion.Version10;
             request.Method = "POST";
 
@@ -42,9 +39,5 @@ namespace DataExtractor.Handlers
             Console.WriteLine(new StreamReader(response.GetResponseStream()).ReadToEnd());
             Console.WriteLine(response.StatusCode);
         }
-
-        
-
-
     }
 }
