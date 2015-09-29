@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataExtractor.Parser
 {
-    class JSONParser
+    public class JSONParser
     {
 
         public JSONParser()
@@ -20,10 +20,6 @@ namespace DataExtractor.Parser
             return json;
         }
 
-        public void SaveToFile(string path, string json) 
-        {
-            System.IO.File.WriteAllText(path, json);
-        }
 
 
     }

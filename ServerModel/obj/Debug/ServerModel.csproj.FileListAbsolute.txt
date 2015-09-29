@@ -11,5 +11,6 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\bin\Debug\Microsoft.Web.Administration.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\bin\Debug\EntityFramework.xml
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\obj\Debug\ServerModel.csprojResolveAssemblyReference.cache
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\obj\Debug\ServerModel.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\ServerModel\obj\Debug\ServerModel.pdb
