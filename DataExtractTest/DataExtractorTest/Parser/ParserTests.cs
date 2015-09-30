@@ -15,17 +15,16 @@ namespace DataExtractTest.DataExtractorTest.Parser
         [TestMethod]
         public void JsonParseProductClass()
         {
+            //Assemble
             Product product = new Product(1, "Pen", 50);
-
             JSONParser parser = new JSONParser();
 
+            //Act
             string result = parser.SerializeObject(product);
 
-
+            //Assert
             string json = "{\"id\":1,\"name\":\"Pen\",\"price\":50}";
-
             Assert.AreEqual(result, json);
-
         }
 
 

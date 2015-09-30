@@ -12,20 +12,23 @@ using System.Threading.Tasks;
 
 namespace DataExtractor.Handlers
 {
-    class IisHandler
+    public class IisHandler : DataExtractor.Handlers.IIisHandler
     {
+        ServerManager serverMgr;
 
-
-        public IISData CreateIisDataObject(ServerManager server, Version IisVersion)
+        public IisHandler()
         {
-            SiteCollection sites = server.Sites;
+            serverMgr = new ServerManager();
+        }
 
+        public IISData CreateIisDataObject(Version IisVersion)
+        {
+            SiteCollection sites = serverMgr.Sites;
             IISData iis = new IISData(IisVersion, sites);
-
             return iis;
         }
 
-        public Version GetIisVersion(EnvironmentData environment)
+        public Version GetIisVersion()
         {
             using (RegistryKey componentsKey = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\InetStp", false))
             {
@@ -36,12 +39,10 @@ namespace DataExtractor.Handlers
 
                     if (majorVersion != -1 && minorVersion != -1)
                     {
-                        environment.hasIis = true;
                         return new Version(majorVersion, minorVersion);
                     }
                 }
-                environment.hasIis = false;
-                return new Version(0, 0);
+                return null;
             }
         }
 

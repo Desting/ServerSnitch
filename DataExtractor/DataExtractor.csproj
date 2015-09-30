@@ -91,7 +91,10 @@
     <Compile Include="Handlers\DatabaseHandler.cs" />
     <Compile Include="Handlers\EnvironmentHandler.cs" />
     <Compile Include="Handlers\HTTPHandler.cs" />
+    <Compile Include="Handlers\IEnvironmentHandler.cs" />
+    <Compile Include="Handlers\IIisHandler.cs" />
     <Compile Include="Handlers\IisHandler.cs" />
+    <Compile Include="Handlers\IServiceHandler.cs" />
     <Compile Include="Handlers\ServiceHandler.cs" />
     <Compile Include="Parser\JSONParser.cs" />
     <Compile Include="Program.cs" />

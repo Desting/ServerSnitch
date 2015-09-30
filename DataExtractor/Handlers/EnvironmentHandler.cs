@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataExtractor.Handlers
 {
-    class EnvironmentHandler
+    public class EnvironmentHandler : DataExtractor.Handlers.IEnvironmentHandler
     {
 
         public void SerializeAndStore(EnvironmentData environment) 

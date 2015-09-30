@@ -23,54 +23,29 @@ using System.Net.Http;
 
 namespace DataExtractor.Controllers
 {
-    class Controller
+    public class Controller
     {
         private string uri;
+        private IEnvironmentHandler envHandler = new EnvironmentHandler();
+        private IIisHandler iisHandler = new IisHandler();
+        private IServiceHandler serHandler = new ServiceHandler();
+
         public Controller(string uri)
         {
             this.uri = uri;
         }
-        
+
+        public Controller(string uri, IEnvironmentHandler envHandler, IIisHandler iisHandler, IServiceHandler serHandler)
+            : this(uri)
+        {
+            this.envHandler = envHandler;
+            this.iisHandler = iisHandler;
+            this.serHandler = serHandler;
+        }
         public void ExtractAndSerializeData()
         {
             // Initialize MasterEntity to hold data
-            MasterEntity dataStorage = new MasterEntity();
-
-
-            // Initialize handlers
-            EnvironmentHandler envHandler = new EnvironmentHandler();
-            IisHandler iisHandler = new IisHandler();
-            ServiceHandler serHandler = new ServiceHandler();
-            DatabaseHandler datHandler = new DatabaseHandler();
-
-            // Initialize server manager
-            ServerManager server = new ServerManager();
-
-            // Environment:
-            EnvironmentData environment = envHandler.GetEnvironmentData();
-
-            // Check for IIS:
-            Version iisVersion = iisHandler.GetIisVersion(environment);
-
-            // Save Environment to MasterEntity
-            dataStorage.environment = environment;
-
-            // IIS:
-            if (environment.hasIis)
-            {
-                IISData iis = iisHandler.CreateIisDataObject(server, iisVersion);
-                IISStringContainer iisContainer = iisHandler.StoreIIS(iis);
-
-                // Save IIS to MasterEntity
-                dataStorage.iis = iisContainer;
-                
-            }
-
-            // Applications:
-            List<ServiceData> applications = serHandler.ListServices();
-
-            // Save Applications to MasterEntity
-            dataStorage.applications = applications;
+            MasterEntity dataStorage = GetData();
 
             // Databases:
             //List<string> databases = datHandler.ListDatabases();
@@ -93,6 +68,37 @@ namespace DataExtractor.Controllers
 
 
 
+        }
+
+        public MasterEntity GetData()
+        {
+            MasterEntity dataStorage = new MasterEntity();
+
+            // Environment:
+            EnvironmentData environment = envHandler.GetEnvironmentData();
+
+            // Check for IIS:
+            Version iisVersion = iisHandler.GetIisVersion();
+            environment.hasIis = iisVersion !=null ;
+
+            // Save Environment to MasterEntity
+            dataStorage.environment = environment;
+
+            // IIS:
+            if (environment.hasIis)
+            {
+                IISData iis = iisHandler.CreateIisDataObject(iisVersion);
+                IISStringContainer iisContainer = iisHandler.StoreIIS(iis);
+
+                // Save IIS to MasterEntity
+                dataStorage.iis = iisContainer;
+
+            }
+
+            // Applications:
+            dataStorage.applications = serHandler.ListServices(); // Test!!
+
+            return dataStorage;
         }
 
 

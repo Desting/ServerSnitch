@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerPresenter", "ServerPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularPractice", "..\AngularPractice\AngularPractice\AngularPractice.csproj", "{6CCF03D4-E90E-4864-AC07-65A3693A19C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "DataExtractTest\UnitTests.csproj", "{E02B151C-0B4E-4BF1-BD57-AF9061DECC4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractTest", "DataExtractTest\DataExtractTest.csproj", "{E02B151C-0B4E-4BF1-BD57-AF9061DECC4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataExtractor.Handlers
 {
-    class ServiceHandler
+    public class ServiceHandler : DataExtractor.Handlers.IServiceHandler
     {
 
         public List<ServiceData> ListServices() 

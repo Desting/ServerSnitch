@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataExtractor.Handlers
 {
-    class DatabaseHandler
+    public class DatabaseHandler
     {
         static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
 
