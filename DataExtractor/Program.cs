@@ -16,7 +16,7 @@ namespace DataExtractor
         static void Main()
         {
             var uri = System.Configuration.ConfigurationManager.AppSettings["serviceURL"];
-            Controller control = new Controller(uri);
+            PostController control = new PostController(uri);
             control.ExtractAndSerializeData();
 
             

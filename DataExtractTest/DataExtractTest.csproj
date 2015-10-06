@@ -56,9 +56,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Controllers\ControllerTests.cs" />
-    <Compile Include="DataExtractorTest\Handlers\HandlersTests.cs" />
-    <Compile Include="DataExtractorTest\Parser\ParserTests.cs" />
+    <Compile Include="Controllers\DataExtractControllerTests.cs" />
+    <Compile Include="Controllers\PostControllerTests.cs" />
+    <Compile Include="Parser\ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

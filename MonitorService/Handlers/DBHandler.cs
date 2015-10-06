@@ -15,8 +15,8 @@ namespace MonitorService.Handlers
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MasterEntity>()
-                .HasOptional<IISStringContainer>(s => s.iis)
-                .WithRequired(s => s.master);
+                .HasOptional<IISStringContainer>(s => s.iis);
+                //.WithRequired(s => s.master);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -12,9 +12,9 @@ namespace DataExtractor.Model.IIS
         public string IISVersion { get; set; }
         public List<Website> websites { get; set; }
 
-        [Key, ForeignKey("master")]
-        public int masterId { get; set; }
-        public virtual MasterEntity master { get; set; }
+        //[Key, ForeignKey("master")]
+        //public int masterId { get; set; }
+        //public virtual MasterEntity master { get; set; }
 
 
         public IISStringContainer(string IISVersion, List<Website> websites)

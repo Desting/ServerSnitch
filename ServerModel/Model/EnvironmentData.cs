@@ -18,8 +18,9 @@ namespace DataExtractor.Model
         public string logTime { get; set; }
 
         public bool hasIis { get; set; }
-        //public bool hasDatabase { get; set; }
-        //public bool hasApplication { get; set; }
+        public EnvironmentData()
+        {
+        }
 
         public EnvironmentData(string machineName, string domainName, string userName, string osVersion, string logTime)
         {

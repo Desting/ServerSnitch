@@ -87,15 +87,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\DataExtract.cs" />
+    <Compile Include="Controllers\IDataExtract.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Handlers\DatabaseHandler.cs" />
-    <Compile Include="Handlers\EnvironmentHandler.cs" />
-    <Compile Include="Handlers\HTTPHandler.cs" />
-    <Compile Include="Handlers\IEnvironmentHandler.cs" />
-    <Compile Include="Handlers\IIisHandler.cs" />
-    <Compile Include="Handlers\IisHandler.cs" />
-    <Compile Include="Handlers\IServiceHandler.cs" />
-    <Compile Include="Handlers\ServiceHandler.cs" />
+    <Compile Include="Handlers\Environment\EnvironmentHandler.cs" />
+    <Compile Include="Handlers\HTTP\HTTPHandler.cs" />
+    <Compile Include="Handlers\Environment\IEnvironmentHandler.cs" />
+    <Compile Include="Handlers\HTTP\IHTTPHandler.cs" />
+    <Compile Include="Handlers\IIS\IIisHandler.cs" />
+    <Compile Include="Handlers\IIS\IisHandler.cs" />
+    <Compile Include="Handlers\Service\IServiceHandler.cs" />
+    <Compile Include="Handlers\Service\ServiceHandler.cs" />
     <Compile Include="Parser\JSONParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
