@@ -145,3 +145,5 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorServ
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.csprojResolveAssemblyReference.cache
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.pdb
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.dll
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.pdb

@@ -1,5 +1,5 @@
 ﻿using DataExtractor.Model;
-using MonitorService.Handlers;
+using Atea.Dbs.ServerMonitor.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace MonitorService.Controllers
             var json = this.Request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(json);
 
-            using (var db = new DBHandler()) 
+            using (var db = new ServerDb()) 
             {
                 db.Servers.Add(content);
                 db.SaveChanges();

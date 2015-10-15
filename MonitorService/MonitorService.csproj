@@ -196,7 +196,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\DBHandler.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -303,11 +302,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Handlers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Atea.Dbs.ServerMonitor.DataAccess\Atea.Dbs.ServerMonitor.DataAccess.csproj">
+      <Project>{1d35b935-a797-4fb9-8596-da6482b0650f}</Project>
+      <Name>Atea.Dbs.ServerMonitor.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServerModel\ServerModel.csproj">
       <Project>{d03383c7-7b66-4d6f-bfa9-47c3e7f651c2}</Project>
       <Name>ServerModel</Name>
