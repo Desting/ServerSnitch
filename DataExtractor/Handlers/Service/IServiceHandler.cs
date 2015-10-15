@@ -3,6 +3,6 @@ namespace DataExtractor.Handlers
 {
     public interface IServiceHandler
     {
-        System.Collections.Generic.List<DataExtractor.Model.ServiceData> ListServices();
+        System.Collections.Generic.List<DataExtractor.Model.ApplicationData> ListServices();
     }
 }

@@ -15,13 +15,13 @@ namespace DataExtractor.Model
         public int Id { get; set; }
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }
-        public List<ServiceData> applications { get; set; }
+        public List<ApplicationData> applications { get; set; }
 
         public MasterEntity()
         {
         }
 
-        public MasterEntity(EnvironmentData environment, IISStringContainer iis, List<ServiceData> applications)
+        public MasterEntity(EnvironmentData environment, IISStringContainer iis, List<ApplicationData> applications)
         {
             this.environment = environment;
             this.iis = iis;

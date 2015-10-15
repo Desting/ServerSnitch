@@ -23,7 +23,11 @@ namespace ServerVisualMVC.Controllers
         {
             using (var db = new ServerDb())
             {
-                var result = db.Servers.ToList();
+                var result = db.Servers
+                    .Include(m => m.applications)
+                    .Include("applications.dependencies")
+                    .ToList();
+
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
         }

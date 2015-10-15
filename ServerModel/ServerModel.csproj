@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Dependency.cs" />
     <Compile Include="Model\EnvironmentData.cs" />
     <Compile Include="Model\IIS\ApplicationPoolCustom.cs" />
     <Compile Include="Model\IIS\IISStringContainer.cs" />

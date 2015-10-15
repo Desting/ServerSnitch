@@ -86,7 +86,7 @@ namespace DataExtractTest.Controllers
         {
             //Assemble
             var sut = Setup();
-            var servList = new List<ServiceData>();
+            var servList = new List<ApplicationData>();
             servHandlerMoq.Setup(m => m.ListServices()).Returns(servList);
 
             //Act

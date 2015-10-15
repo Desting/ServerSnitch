@@ -6,21 +6,22 @@ using System.Linq;
 using System.Management;
 using System.ServiceProcess;
 using System.Text;
+using ServerModel.Model;
 
 namespace DataExtractor.Handlers
 {
     public class ServiceHandler : DataExtractor.Handlers.IServiceHandler
     {
 
-        public List<ServiceData> ListServices() 
+        public List<ApplicationData> ListServices() 
         {
-            List<ServiceData> serviceList = new List<ServiceData>();
+            List<ApplicationData> serviceList = new List<ApplicationData>();
 
 
             ServiceController[] services = ServiceController.GetServices();
             foreach (var service in services)
             {
-                ServiceData serviceData = new ServiceData();
+                ApplicationData serviceData = new ApplicationData();
 
                 serviceData.displayName = service.DisplayName;
                 serviceData.systemName = service.ServiceName;
@@ -53,20 +54,23 @@ namespace DataExtractor.Handlers
                 serviceData.status = service.Status.ToString();
 
 
-                List<string> dependencies = new List<string>();
+                List<Dependency> dependencies = new List<Dependency>();
 
                 ServiceController[] temp = service.ServicesDependedOn;
                 if (temp.Length > 0)
                 {
                     foreach (var x in temp)
                     {
-
-                        dependencies.Add(x.ServiceName);
+                        Dependency dep = new Dependency();
+                        dep.name = x.ServiceName;
+                        dependencies.Add(dep);
                     }
                 }
                 else
                 {
-                    dependencies.Add("None");
+                    Dependency dep = new Dependency();
+                    dep.name = "None";
+                    dependencies.Add(dep);
                 }
 
                 serviceData.dependencies = dependencies;
