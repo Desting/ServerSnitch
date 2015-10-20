@@ -1,63 +1,127 @@
-﻿@model DataExtractor.Model.MasterEntity
-
-@{
-    ViewBag.Title = "Index";
-    var name = "Nik";
+﻿@{
+    Layout = null;
 }
 
-<link href="~/Content/simple-sidebar.css" rel="stylesheet" />
+<!DOCTYPE html>
 
-<div id="wrapper">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="Dashboard">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+</head>
+<body ng-app="app">
+    <div>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>Sup</p>
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Shortcuts</a>
+                    </li>
+                    <li>
+                        <a href="#">Overview</a>
+                    </li>
+                    <li>
+                        <a href="#">Events</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>My servers:</h2>
+                            <div ng-controller="planetController">
+
+                                <div ng-repeat="server in servers">
+                                    <p>count: {{server.applications.length}}</p>
+
+                                    <h4>ID: {{server.Id}}</h4>
+                                    
+
+                                    <ul>
+                                        <li ng-repeat="field in server.environment">{{field}}
+
+                                        </li>
+                                        <hr />
+                                        <br />
+                                    </ul>
+                                    <h4>IIS: {{server.iis}}</h4>
+                                    <hr />
+
+                                    <div ng-repeat="application in server.applications">
+                                        <h5>Application ID: {{application.Id}}</h5>
+                                        <p>displayName: {{application.displayName}}</p>
+                                        <p>systemName: {{application.systemName}}</p>
+                                        <p>logon: {{application.logon}}</p>
+                                        <p>description: {{application.description}}</p>
+                                        <p>type: {{application.type}}</p>
+                                        <p>status: {{application.status}}</p>
+                                        <ul>
+                                            <h5>Dependencies:</h5>
+                                            <li ng-repeat="dependency in application.dependencies">
+                                        <p>Id: {{dependency.Id}}</p>
+                                        <p>name: {{dependency.name}}</p>
+                                            <hr />
+
+                                                <br />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+                               @* <ul>
+                                    <li ng-repeat="server in servers">
+                                        <ul>
+                                            <li ng-repeat="field in server"> {{field}}
+                                               
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>*@
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
+
 
     </div>
-    <!-- /#wrapper -->
 
-<script src="~/Scripts/jquery.js"></script>
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Scripts/angular.min.js"></script>
+
+    @*<script src="~/Scripts/jquery.js"></script>*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.module.js"></script>
+    <script src="~/Scripts/app/main.js"></script>
+</body>
+</html>
