@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('serverMonitor')
 
 
 
@@ -11,7 +11,7 @@
         .success(function (response) { $scope.names = response.records; });
     })
 
-    .controller('planetController', function($scope, $http) {
+    .controller('serverController', function ($scope, $http) {
         // Simple GET request example:
         $http({
             method: 'GET',
@@ -25,7 +25,6 @@
             // or server returns response with an error status.
         });
     })
-
     ;;
 
 

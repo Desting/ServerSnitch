@@ -1,4 +1,5 @@
 ﻿using Atea.Dbs.ServerMonitor.DataAccess;
+using DataExtractor.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -29,6 +30,20 @@ namespace ServerVisualMVC.Controllers
                     .ToList();
 
                 return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public List<MasterEntity> Servers()
+        {
+            using (var db = new ServerDb())
+            {
+                var result = db.Servers
+                    .Include(m => m.applications)
+                    .Include("applications.dependencies")
+                    .ToList();
+
+                return result;
             }
         }
     }

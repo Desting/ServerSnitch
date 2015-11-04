@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+<div class="jumbotron">   
+<h2>Server:</h2>
+    <dl class="dl-horizontal">
+  <dt>Machine Name</dt>  <dd>{{server.environment.machineName}}</dd>
+  <dt>Domain Name</dt>  <dd>{{server.environment.domainName}}</dd>
+  <dt>User</dt>  <dd>{{server.environment.userName}}</dd>
+  <dt>OS Version</dt>  <dd>{{server.environment.osVersion}}</dd>
+  <dt>Log Time</dt>  <dd>{{server.environment.logTime}}</dd>
+</dl>
+
+    @*<ul>
+        <li>{{server.environment.machineName}}</li>
+        <li>{{server.environment.domainName}}</li>
+        <li>{{server.environment.userName}}</li>
+        <li>{{server.environment.osVersion}}</li>
+        <li>{{server.environment.logTime}}</li>
+        <li>{{server.environment.hasIis}}</li>
+    </ul>*@
+
+</div>
+
+
+<div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h3>Applications:</h3>
+
+
+
+
+
+
+
+
+                            <div >
+
+                                <table st-table="rowCollection" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>displayName</th>
+                                            <th>systemName</th>
+                                            <th>Authentication</th>
+                                            <th>description</th>
+                                            <th>type</th>
+                                            <th>status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="application in server.applications">
+                                            <td>{{application.Id}}</td>
+                                            <td>{{application.displayName}}</td>
+                                            <td>{{application.systemName}}</td>
+                                            <td>{{application.logon}}</td>
+                                            <td>{{application.description}}</td>
+                                            <td>{{application.type}}</td>
+                                            <td>{{application.status}}</td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

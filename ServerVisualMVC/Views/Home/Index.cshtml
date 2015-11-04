@@ -4,17 +4,63 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app="serverMonitor">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>ServerMonitor</title>
+
+
     <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
 
-</head>
-<body ng-app="app">
-    <div>
 
-        <div id="wrapper">
+    <script src="~/Scripts/jquery.js"></script>
+   
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://raw.githubusercontent.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-0.4.0.js"></script>
+
+    
+    <script src="~/Scripts/app/app.module.js"></script>
+    <script src="~/Scripts/app/main.js"></script>
+
+
+    @*<link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.min.css">*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/angular.min.js"></script>
+    @*<script src="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.js"></script>*@
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="~/app.js"></script>
+
+
+    <link href="~/Content/Table.css" rel="stylesheet" />
+
+    <base href="/">
+
+</head>
+<body ng-cloak>
+    <div>
+<!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">Atea ServerMonitor</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/"><i class="fa fa-home"></i>Home</a></li>
+                    @*<li><a href="#details"><i class="fa fa-shield"></i>Details</a></li>*@
+                    <li><a href="#contact"><i class="fa fa-comment"></i>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+        @*<div id="wrapper">
 
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
@@ -24,104 +70,34 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Dashboard">Dashboard</a>
+                        <a href="#">ONE</a>
                     </li>
                     <li>
-                        <a href="#">Shortcuts</a>
-                    </li>
-                    <li>
-                        <a href="#">Overview</a>
-                    </li>
-                    <li>
-                        <a href="#">Events</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Other Domain</a>
                     </li>
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h2>My servers:</h2>
-                            <div ng-controller="planetController">
+        </div>*@
 
-                                <div ng-repeat="server in servers">
-                                    <p>count: {{server.applications.length}}</p>
 
-                                    <h4>ID: {{server.Id}}</h4>
-                                    
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div ng-view></div>
 
-                                    <ul>
-                                        <li ng-repeat="field in server.environment">{{field}}
-
-                                        </li>
-                                        <hr />
-                                        <br />
-                                    </ul>
-                                    <h4>IIS: {{server.iis}}</h4>
-                                    <hr />
-
-                                    <div ng-repeat="application in server.applications">
-                                        <h5>Application ID: {{application.Id}}</h5>
-                                        <p>displayName: {{application.displayName}}</p>
-                                        <p>systemName: {{application.systemName}}</p>
-                                        <p>logon: {{application.logon}}</p>
-                                        <p>description: {{application.description}}</p>
-                                        <p>type: {{application.type}}</p>
-                                        <p>status: {{application.status}}</p>
-                                        <ul>
-                                            <h5>Dependencies:</h5>
-                                            <li ng-repeat="dependency in application.dependencies">
-                                        <p>Id: {{dependency.Id}}</p>
-                                        <p>name: {{dependency.name}}</p>
-                                            <hr />
-
-                                                <br />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
 
 
 
-                               @* <ul>
-                                    <li ng-repeat="server in servers">
-                                        <ul>
-                                            <li ng-repeat="field in server"> {{field}}
-                                               
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>*@
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /#page-content-wrapper -->
-
-        </div>
-        <!-- /#wrapper -->
 
 
-    </div>
+
+        
 
 
-    @*<script src="~/Scripts/jquery.js"></script>*@
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/app/app.module.js"></script>
-    <script src="~/Scripts/app/main.js"></script>
+
+
+    
 </body>
 </html>

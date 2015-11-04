@@ -66,6 +66,7 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorServ
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\MonitorService.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\MonitorService.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Antlr3.Runtime.dll
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\EntityFramework.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\EntityFramework.SqlServer.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Microsoft.Data.Edm.dll
@@ -91,6 +92,7 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorServ
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\System.Web.WebPages.Razor.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\WebGrease.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Microsoft.Web.Administration.dll
+C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\ServerModel.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Antlr3.Runtime.pdb
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\EntityFramework.xml
@@ -145,5 +147,3 @@ C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorServ
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.csprojResolveAssemblyReference.cache
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.dll
 C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\obj\Debug\MonitorService.pdb
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.dll
-C:\Users\extnizi\Documents\Visual Studio 2012\Projects\ServerMonitor\MonitorService\bin\Atea.Dbs.ServerMonitor.DataAccess.pdb

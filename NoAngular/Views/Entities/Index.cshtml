@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DataExtractor.Model.MasterEntity>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Servers:</h2>
+
+<div class="table-responsive">
+
+                                <table st-table="rowCollection" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Machine Name</th>
+                                            <th>Domain Name</th>
+                                            <th>User</th>
+                                            <th>OS Version</th>
+                                            <th>Log Time</th>
+                                            <th>Has IIS</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var masterEntity in Model) 
+                                        {
+                                            <tr class="clickable-row">
+                                            <td>@masterEntity.Id</td>
+                                            <td>@masterEntity.environment.machineName</td>
+                                            <td>@masterEntity.environment.domainName</td>
+                                            <td>@masterEntity.environment.userName</td>
+                                            <td>@masterEntity.environment.osVersion</td>
+                                            <td>@masterEntity.environment.logTime</td>
+                                            <td>@masterEntity.environment.hasIis</td>
+
+
+                                        </tr>  
+                                        }
+                                       
+                                    </tbody>
+                                </table>
+
+
+                                
+                            </div>
+
+

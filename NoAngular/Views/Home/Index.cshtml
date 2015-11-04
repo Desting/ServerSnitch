@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                This should either be a guide for the site or be deleted completely.
+            </p>
+        </div>
+    </section>
+}
+
+<div  id="result"></div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $.get("/entities", function (data) {
+                $("#result").html(data);
+            });
+
+        });
+    </script>
+}

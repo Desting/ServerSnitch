@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="jumbotron text-center">
+        <h1>Servers</h1>
+
+    </div>
+
+<div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+
+
+
+
+
+
+
+                            <div class="table-responsive">
+
+                                <table st-table="rowCollection" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Machine Name</th>
+                                            <th>Domain Name</th>
+                                            <th>User</th>
+                                            <th>OS Version</th>
+                                            <th>Log Time</th>
+                                            <th>Has IIS</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="server in servers" ng-click="setServer(server);" class="clickable-row">
+                                            <td>{{server.Id}}</td>
+                                            <td>{{server.environment.machineName}}</td>
+                                            <td>{{server.environment.domainName}}</td>
+                                            <td>{{server.environment.userName}}</td>
+                                            <td>{{server.environment.osVersion}}</td>
+                                            <td>{{server.environment.logTime}}</td>
+                                            <td>{{server.environment.hasIis | uppercase}}</td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
