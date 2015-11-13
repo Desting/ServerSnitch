@@ -18,7 +18,7 @@ namespace DataExtractTest.Controllers
         Mock<IServiceHandler> servHandlerMoq;
         private DataExtract Setup()
         {
-            envData = new EnvironmentData(null, null, null, null, null);
+            envData = new EnvironmentData(null, null, null, null, DateTime.Now);
             eHandlerMoq = new Mock<IEnvironmentHandler>();
             eHandlerMoq.Setup(m => m.GetEnvironmentData()).Returns(envData);
             iisHandlerMoq = new Mock<IIisHandler>();

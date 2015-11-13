@@ -19,16 +19,29 @@ namespace NoAngular
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/bootstrap.min*"));
+                        "~/Scripts/bootstrap*"));
+
+            // Custom
+            bundles.Add(new ScriptBundle("~/bundles/accordion").Include(
+                        "~/Scripts/accordion*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/tablesort").Include(
+                        "~/Scripts/jquery.tablesorter*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/site.css",
+                //"~/Content/custom.css",
                 "~/Content/table.css",
                 "~/Content/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/sorter/css").Include(
+                "~/sorter/style.css",
+                "~/pager/pager.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

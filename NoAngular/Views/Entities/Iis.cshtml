@@ -1,0 +1,52 @@
+﻿@model DataExtractor.Model.MasterEntity
+
+@{
+    ViewBag.Title = "Iis";
+}
+
+@if(Model.environment.hasIis == true){
+
+      <div class ="col-md-12">
+          <h1>IIS Version: @Model.iis.IISVersion</h1>
+    <h2>Websites</h2>
+<p>count: @Model.iis.websites.Count</p>
+
+          <input id="searchInput" value="Type To Filter">
+          <table st-table="rowCollection" class="table table-hover" id="sortableTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>siteName</th>
+                                            <th>state</th>
+                                            <th>parentPool</th>
+@*                                            <th>bindings</th>
+                                            <th>applicationPools</th>*@
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fbody">
+                                        @for (var j = 0; j < Model.iis.websites.Count; j++ )
+                                        { 
+                                            <tr data-toggle="modal" data-target="#myModal"  id="clickable">
+                                            <td>@(j+1)</td>
+                                            <td>@Model.iis.websites[j].siteName</td>
+                                            <td>@Model.iis.websites[j].state</td>
+                                            <td>@Model.iis.websites[j].parentPool</td>
+                                            @*<td>@Model.iis.websites[j].bindings.Count</td>
+                                            <td>@Model.iis.websites[j].applicationPools.Count</td>*@
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+      </div>
+
+
+        }
+    else{
+        <p>Nothing</p>
+    }
+
+<script src="~/Scripts/Custom/sortTable.js"></script>
+<script src="~/Scripts/Custom/FilterTable.js"></script>

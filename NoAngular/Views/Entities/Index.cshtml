@@ -5,9 +5,10 @@
 
 <h2>Servers:</h2>
 
+<input id="searchInput" value="Type To Filter">
 <div class="table-responsive">
 
-                                <table st-table="rowCollection" class="table table-hover">
+                                <table st-table="rowCollection" class="table table-hover" id="sortableTable">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -20,27 +21,25 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="fbody">
                                         @foreach (var masterEntity in Model) 
                                         {
-                                            <tr class="clickable-row">
+                                            <tr class="clickable-row" onclick="window.location='/Entities/Details/@masterEntity.Id'" id="clickable">
                                             <td>@masterEntity.Id</td>
                                             <td>@masterEntity.environment.machineName</td>
                                             <td>@masterEntity.environment.domainName</td>
                                             <td>@masterEntity.environment.userName</td>
                                             <td>@masterEntity.environment.osVersion</td>
-                                            <td>@masterEntity.environment.logTime</td>
+                                            <td>@masterEntity.environment.logTime.ToString()</td>
                                             <td>@masterEntity.environment.hasIis</td>
-
+                                                
 
                                         </tr>  
                                         }
                                        
                                     </tbody>
                                 </table>
-
-
-                                
                             </div>
 
-
+<script src="~/Scripts/Custom/FilterTable.js"></script>
+<script src="~/Scripts/Custom/sortTable.js"></script>

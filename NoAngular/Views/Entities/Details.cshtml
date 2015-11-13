@@ -1,0 +1,59 @@
+﻿@model DataExtractor.Model.MasterEntity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">*@
+
+
+
+<h2>Details</h2>
+
+<dl class="dl-horizontal">
+  <dt>ID:</dt>  <dd>@Model.Id</dd>
+  <dt>Machine Name:</dt>  <dd>@Model.environment.machineName</dd>
+  <dt>Domain Name:</dt>  <dd>@Model.environment.domainName</dd>
+  <dt>User:</dt>  <dd>@Model.environment.userName</dd>
+  <dt>OS Version:</dt>  <dd>@Model.environment.osVersion</dd>
+  <dt>Log Time:</dt>  <dd>@Model.environment.logTime</dd>
+</dl>
+@*-----------------------*@
+
+
+
+
+
+@*--------------------*@
+
+@*--------------------TABS --------------------*@
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#services" onclick="getServices(@Model.Id)">Services</a></li>
+  <li><a data-toggle="tab" href="#iis" onclick="getIIS(@Model.Id)">IIS</a></li>
+</ul>
+
+@*--------------------SERVICES --------------------*@
+<div class="tab-content">
+  <div id="services" class="tab-pane fade in active">
+      Loading...
+  </div>
+
+
+@*--------------------IIS --------------------*@
+  <div id="iis" class="tab-pane fade">
+      Loading...
+    
+  </div>
+    
+</div>
+
+<script src="~/Scripts/Custom/ControllerCalls.js"></script>
+
+
+
+
+

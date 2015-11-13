@@ -15,14 +15,14 @@ namespace DataExtractor.Model
         public string domainName { get; set; }
         public string userName { get; set; }
         public string osVersion { get; set; }
-        public string logTime { get; set; }
+        public DateTime logTime { get; set; }
 
         public bool hasIis { get; set; }
         public EnvironmentData()
         {
         }
 
-        public EnvironmentData(string machineName, string domainName, string userName, string osVersion, string logTime)
+        public EnvironmentData(string machineName, string domainName, string userName, string osVersion, DateTime logTime)
         {
             this.machineName = machineName;
             this.domainName = domainName;

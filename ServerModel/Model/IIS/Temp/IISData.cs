@@ -23,6 +23,7 @@ namespace DataExtractor.Model
         {
             this.IisVersion = IisVersion;
             this.sites = sites;
+
         }
 
         

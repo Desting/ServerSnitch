@@ -18,7 +18,7 @@ namespace DataExtractTest.Controllers
 
         private PostController Setup() 
         {
-            entity = new MasterEntity(new EnvironmentData {logTime = DateTime.Now.ToString() }, null, null);
+            entity = new MasterEntity(new EnvironmentData {logTime = DateTime.Now }, null, null);
 
             httpHandlerMoq = new Mock<IHTTPHandler>();
             dataExtractMoq = new Mock<IDataExtract>();

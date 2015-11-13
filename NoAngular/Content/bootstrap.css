@@ -1666,6 +1666,30 @@ th {
   background-color: #f5f5f5;
 }
 
+.table-hover thead tr th, .table-hover tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 12pt;
+	padding: 8px;
+	text-align:left;
+}
+.table-hover thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+.table-hover thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+.table-hover thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+.table-hover thead tr .headerSortDown, .table-hover thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
 table col[class*="col-"] {
   display: table-column;
   float: none;

@@ -1,0 +1,67 @@
+﻿@model DataExtractor.Model.MasterEntity
+
+
+@{
+    ViewBag.Title = "Services";
+}
+
+    <h2>Services</h2>
+<p>count: @Model.applications.Count</p>
+<div class ="col-md-12">
+          <input id="searchInput" value="Type To Filter">
+
+    <table st-table="rowCollection" class="table table-hover" id="sortableTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>displayName</th>
+                                            <th>systemName</th>
+                                            <th>Authentication</th>
+                                            <th>type</th>
+                                            <th>status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fbody">
+                                        @for (int i = 0; i < Model.applications.Count; i++ )
+                                        { 
+                                            <tr data-toggle="modal" data-target="#serviceModal" data-id="@Model.applications[i]"  id="clickable">
+                                            <td>@(i+1)</td>
+                                            <td>@Model.applications[i].displayName</td>
+                                            <td>@Model.applications[i].systemName</td>
+                                            <td>@Model.applications[i].logon</td>
+                                            <td>@Model.applications[i].type</td>
+                                            <td>@Model.applications[i].status</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+ 
+    </div>
+
+      <!-- Modal -->
+<div id="serviceModal" class="modal fade modal-sm" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Description</h4>
+      </div>
+      <div class="modal-body">
+        <p></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="~/Scripts/Custom/sortTable.js"></script>
+<script src="~/Scripts/Custom/FilterTable.js"></script>
+<script src="~/Scripts/Custom/ModalDataBinder.js"></script>

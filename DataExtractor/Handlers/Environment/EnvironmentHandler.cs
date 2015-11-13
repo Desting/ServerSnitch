@@ -23,7 +23,7 @@ namespace DataExtractor.Handlers
             string domainName = Environment.UserDomainName.ToString();
             string userName = Environment.UserName;
             string osVersion = Environment.OSVersion.ToString();
-            string logTime = DateTime.Now.ToLongDateString() + ", " + DateTime.Now.ToLongTimeString();
+            DateTime logTime = DateTime.Now;
             EnvironmentData temp = new EnvironmentData(machineName, domainName, userName, osVersion, logTime);
             return temp;
         }

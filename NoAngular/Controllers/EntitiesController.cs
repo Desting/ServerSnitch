@@ -29,17 +29,40 @@ namespace NoAngular.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult Servers()
+        public ActionResult Details(int id) 
+        {
+            using (var db = new ServerDb())
+            {
+                var result = db.Servers
+                    .Where(m => m.Id == id)
+                    .FirstOrDefault();
+                return View(result);
+            }
+        }
+
+        public ActionResult Services(int id)
         {
             using (var db = new ServerDb())
             {
                 var result = db.Servers
                     .Include(m => m.applications)
                     .Include("applications.dependencies")
-                    .ToList();
+                    .Where(m => m.Id == id)
+                    .FirstOrDefault();
+                return PartialView(result);
+            }
+        }
 
-                return View(result);
+        public ActionResult Iis(int id)
+        {
+            using (var db = new ServerDb())
+            {
+                var result = db.Servers
+                    .Include(m => m.iis)
+                    .Include("iis.websites")
+                    .Where(m => m.Id == id)
+                    .FirstOrDefault();
+                return PartialView(result);
             }
         }
     }

@@ -73,6 +73,8 @@ namespace DataExtractor.Handlers
                 // Store the Name of the Site.
                 website.siteName = site.ToString();
 
+                
+
                 // Store the State of the Site.
                 website.state = site.State.ToString();
 
