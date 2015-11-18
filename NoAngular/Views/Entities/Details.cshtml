@@ -3,15 +3,15 @@
 @{
     ViewBag.Title = "Details";
 }
-
-@*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">*@
-
-
-
-<h2>Details</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
 
 <dl class="dl-horizontal">
   <dt>ID:</dt>  <dd>@Model.Id</dd>
@@ -20,37 +20,39 @@
   <dt>User:</dt>  <dd>@Model.environment.userName</dd>
   <dt>OS Version:</dt>  <dd>@Model.environment.osVersion</dd>
   <dt>Log Time:</dt>  <dd>@Model.environment.logTime</dd>
+@if (Model.environment.hasIis) { 
+    <br />
+  <dt>IIS Version:</dt>  <dd>@Model.iis.IISVersion</dd>
+
+}
 </dl>
-@*-----------------------*@
 
 
 
-
-
-@*--------------------*@
-
-@*--------------------TABS --------------------*@
+@*-------------------- TABS --------------------*@
 
 <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#services" onclick="getServices(@Model.Id)">Services</a></li>
-  <li><a data-toggle="tab" href="#iis" onclick="getIIS(@Model.Id)">IIS</a></li>
+  <li class="active"><a data-toggle="tab" href="#services" >Services</a></li>
+    @if(Model.environment.hasIis){
+  <li><a data-toggle="tab" href="#iis" >IIS</a></li>
+    }
 </ul>
 
-@*--------------------SERVICES --------------------*@
+@*-------------------- SERVICES --------------------*@
 <div class="tab-content">
   <div id="services" class="tab-pane fade in active">
-      Loading...
+      @Html.Partial("Services");
   </div>
 
 
-@*--------------------IIS --------------------*@
+@*-------------------- IIS --------------------*@
+    @if(Model.environment.hasIis){
   <div id="iis" class="tab-pane fade">
-      Loading...
-    
+            @Html.Partial("Iis");
   </div>
-    
+    }
 </div>
-
+<script src="~/Scripts/Custom/sortTable.js"></script>
 <script src="~/Scripts/Custom/ControllerCalls.js"></script>
 
 

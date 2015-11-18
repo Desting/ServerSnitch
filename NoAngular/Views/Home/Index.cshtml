@@ -5,12 +5,8 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
+                <h1>@ViewBag.Title</h1>
             </hgroup>
-            <p>
-                This should either be a guide for the site or be deleted completely.
-            </p>
         </div>
     </section>
 }
@@ -18,23 +14,3 @@
 <div  id="result"></div>
 
 <script src="~/Scripts/Custom/GetEntities.js"></script>
-
-    @*<script>
-        $(document).ready(function () {
-            $.get("/entities", function (data) {
-                $("#result").html(data);
-
-                $("table").tablesorter();
-                $("#trigger-link").click(function () {
-                    // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
-                    var sorting = [[0, 0], [2, 0]];
-                    // sort on the first column 
-                    $("table").trigger("sorton", [sorting]);
-                    // return false to stop default link action 
-                    return false;
-                });
-            });
-
-
-        });
-    </script>*@

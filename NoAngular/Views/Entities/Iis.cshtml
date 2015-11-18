@@ -3,37 +3,32 @@
 @{
     ViewBag.Title = "Iis";
 }
-
-@if(Model.environment.hasIis == true){
+<br />
 
       <div class ="col-md-12">
-          <h1>IIS Version: @Model.iis.IISVersion</h1>
-    <h2>Websites</h2>
-<p>count: @Model.iis.websites.Count</p>
 
-          <input id="searchInput" value="Type To Filter">
-          <table st-table="rowCollection" class="table table-hover" id="sortableTable">
+          <table st-table="rowCollection" class="table table-hover" id="iisTable">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>siteName</th>
                                             <th>state</th>
                                             <th>parentPool</th>
-@*                                            <th>bindings</th>
-                                            <th>applicationPools</th>*@
+                                            @*<th>bindings</th>*@
+                                            <th>applicationPools</th>
 
                                         </tr>
                                     </thead>
                                     <tbody id="fbody">
                                         @for (var j = 0; j < Model.iis.websites.Count; j++ )
                                         { 
-                                            <tr data-toggle="modal" data-target="#myModal"  id="clickable">
+                                            <tr data-toggle="modal" data-target="#iisModal" data-content="@Model.iis.websites[j].applicationPools">
                                             <td>@(j+1)</td>
                                             <td>@Model.iis.websites[j].siteName</td>
                                             <td>@Model.iis.websites[j].state</td>
                                             <td>@Model.iis.websites[j].parentPool</td>
-                                            @*<td>@Model.iis.websites[j].bindings.Count</td>
-                                            <td>@Model.iis.websites[j].applicationPools.Count</td>*@
+                                            @*<td>@Model.iis.websites[j].bindings.Count</td>*@
+                                            <td>@Model.iis.websites[j].applicationPools.Count</td>
 
                                         </tr>
                                         }
@@ -41,12 +36,27 @@
                                 </table>
 
       </div>
+<div id="iisModal" class="modal fade modal-sm" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Description</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-        }
-    else{
-        <p>Nothing</p>
-    }
+  </div>
+</div>
+
+<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
 
 <script src="~/Scripts/Custom/sortTable.js"></script>
-<script src="~/Scripts/Custom/FilterTable.js"></script>
+

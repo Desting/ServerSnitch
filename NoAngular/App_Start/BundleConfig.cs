@@ -21,6 +21,9 @@ namespace NoAngular
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+                        "~/Scripts/datatables/jquery.dataTables.js"));
+
             // Custom
             bundles.Add(new ScriptBundle("~/bundles/accordion").Include(
                         "~/Scripts/accordion*"));
@@ -37,11 +40,14 @@ namespace NoAngular
                 "~/Content/site.css",
                 //"~/Content/custom.css",
                 "~/Content/table.css",
-                "~/Content/bootstrap.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/DataTables/css/jquery.dataTables.css"
+                ));
 
             bundles.Add(new StyleBundle("~/sorter/css").Include(
                 "~/sorter/style.css",
                 "~/pager/pager.css"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

@@ -34,12 +34,18 @@ namespace NoAngular.Controllers
             using (var db = new ServerDb())
             {
                 var result = db.Servers
+                    .Include(m => m.applications)
+                    .Include(m => m.iis)
+                    .Include("iis.websites.applicationPools")
+
                     .Where(m => m.Id == id)
                     .FirstOrDefault();
                 return View(result);
             }
         }
 
+
+        // Currently not used
         public ActionResult Services(int id)
         {
             using (var db = new ServerDb())
