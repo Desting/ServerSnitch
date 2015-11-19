@@ -2,50 +2,72 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
 
-<h2>Servers:</h2>
 
 <div class="col-md-12">
 
-                                <table st-table="rowCollection" class="table table-hover" id="serverTable">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Machine Name</th>
-                                            <th>Domain Name</th>
-                                            <th>User</th>
-                                            <th>OS Version</th>
-                                            <th>Log Time</th>
-                                            <th>Has IIS</th>
+    <table class="display" id="serverTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Machine Name</th>
+                <th>Domain Name</th>
+                <th>User</th>
+                <th>OS Version</th>
+                <th>Log Time</th>
+                <th>Has IIS</th>
+                <th>SLA</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody id="fbody">
-                                        @foreach (var masterEntity in Model) 
-                                        {
-                                            <tr class="clickable-row" onclick="window.location='/Entities/Details/@masterEntity.Id'" >
-                                            <td>@masterEntity.Id</td>
-                                            <td>@masterEntity.environment.machineName</td>
-                                            <td>@masterEntity.environment.domainName</td>
-                                            <td>@masterEntity.environment.userName</td>
-                                            <td>@masterEntity.environment.osVersion</td>
-                                            <td>@masterEntity.environment.logTime.ToString()</td>
-                                                @if (masterEntity.environment.hasIis) { 
-                                            <td>Yes</td>
-                                                }else{
-                                            <td>No</td>
-                                                }
-                                                
+            </tr>
+        </thead>
+        <tbody id="fbody">
+            @foreach (var masterEntity in Model)
+            {
+                <tr class="clickable-row"  >
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.Id</td>
+                    <td>@masterEntity.environment.machineName</td>
+                    <td>@masterEntity.environment.domainName</td>
+                    <td>@masterEntity.environment.userName</td>
+                    <td>@masterEntity.environment.osVersion</td>
+                    <td>@masterEntity.environment.logTime.ToString()</td>
+                    @if (masterEntity.environment.hasIis)
+                    { 
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" href="#">None selected <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li><a href="#">Bronze</a></li>
+        <li><a href="#">Silver</a></li>
+        <li><a href="#">Gold</a></li>
+    </ul>
+                        </div>
 
-                                        </tr>  
-                                        }
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-@*<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
-<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>*@
+                    </td>
+
+
+                </tr>  
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
 <script src="~/Scripts/Custom/sortTable.js"></script>
 
-@*<script src="~/Scripts/Custom/FilterTable.js"></script>
-<script src="~/Scripts/Custom/sortTable.js"></script>*@
+<script>
+    $(".dropdown-menu li a").click(function () {
+        var selText = $(this).text();
+        $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + '<span class="caret"></span>');
+    });
+</script>
+
+
+@*onclick="window.location='/Entities/Details/@masterEntity.Id'"*@

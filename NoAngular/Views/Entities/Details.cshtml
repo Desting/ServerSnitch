@@ -34,21 +34,21 @@
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#services" >Services</a></li>
     @if(Model.environment.hasIis){
-  <li><a data-toggle="tab" href="#iis" >IIS</a></li>
+  <li><a data-toggle="tab" href="#iis" >Websites</a></li>
     }
 </ul>
 
 @*-------------------- SERVICES --------------------*@
 <div class="tab-content">
   <div id="services" class="tab-pane fade in active">
-      @Html.Partial("Services");
+      @Html.Partial("Services")
   </div>
 
 
 @*-------------------- IIS --------------------*@
     @if(Model.environment.hasIis){
   <div id="iis" class="tab-pane fade">
-            @Html.Partial("Iis");
+            @Html.Partial("Iis")
   </div>
     }
 </div>

@@ -7,22 +7,22 @@
 
       <div class ="col-md-12">
 
-          <table st-table="rowCollection" class="table table-hover" id="iisTable">
+          <table class="table table-hover" id="iisTable">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>siteName</th>
-                                            <th>state</th>
-                                            <th>parentPool</th>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>State</th>
+                                            <th>Parent Pool</th>
                                             @*<th>bindings</th>*@
-                                            <th>applicationPools</th>
+                                            <th>No. of Application Pools</th>
 
                                         </tr>
                                     </thead>
                                     <tbody id="fbody">
                                         @for (var j = 0; j < Model.iis.websites.Count; j++ )
                                         { 
-                                            <tr data-toggle="modal" data-target="#iisModal" data-content="@Model.iis.websites[j].applicationPools">
+                                            <tr data-toggle="modal" data-target="#iisModal" data-content="hello">
                                             <td>@(j+1)</td>
                                             <td>@Model.iis.websites[j].siteName</td>
                                             <td>@Model.iis.websites[j].state</td>
@@ -35,7 +35,9 @@
                                     </tbody>
                                 </table>
 
-      </div>
+      
+
+
 <div id="iisModal" class="modal fade modal-sm" role="dialog">
   <div class="modal-dialog">
 
@@ -45,7 +47,10 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Description</h4>
       </div>
-      <div class="modal-body"></div>
+      <div class="modal-body">
+
+
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>

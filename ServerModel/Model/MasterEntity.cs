@@ -16,6 +16,7 @@ namespace DataExtractor.Model
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }
         public List<ApplicationData> applications { get; set; }
+        public int cost { get; set; }
 
         public MasterEntity()
         {

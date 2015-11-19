@@ -27,6 +27,24 @@ namespace MonitorService.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "OK");
         }
 
+        //public object Update([FromBody] MasterEntity updatedServer)
+        //{
+
+        //    using (var db = new ServerDb())
+        //    {
+        //        var original = db.Servers.Find(updatedServer.Id);
+
+        //        if (original != null)
+        //        {
+        //            db.Entry(original).CurrentValues.SetValues(updatedServer);
+        //            db.SaveChanges();
+        //        }
+        //    }
+
+        //    return Request.CreateResponse(HttpStatusCode.OK, "OK");
+
+        //}
+
     }
 
 

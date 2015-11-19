@@ -21,23 +21,12 @@
 });
 
 $(function () {
-    $('#lalala').modal({
-        keyboard: true,
-        backdrop: "static",
+    $('#iisModal').modal({
         show: false,
-
-
     }).on('show', function () {
 
     });
-    $(".table-hover").find('tr[data-id]').on('click', function () {
+    $('.modal-body').html($('<b>' + $(this).data('target') + '</b>'));
 
-        //do all your operation populate the modal and open the modal now. DOnt need to use show event of modal again
-        $('.modal-body').html($('<b>' + $(this).data('content') + '</b>'));
-        $('#lalala').modal('show');
-
-
-
-    });
 
 });
