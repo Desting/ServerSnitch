@@ -12,12 +12,13 @@
             <tr>
                 <th>ID</th>
                 <th>Machine Name</th>
-                <th>Domain Name</th>
-                <th>User</th>
+                <th>Domain</th>
+                <th>Owner</th>
                 <th>OS Version</th>
                 <th>Log Time</th>
                 <th>Has IIS</th>
                 <th>SLA</th>
+                <th>Tags</th>
 
             </tr>
         </thead>
@@ -26,11 +27,11 @@
             {
                 <tr class="clickable-row"  >
                     <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.Id</td>
-                    <td>@masterEntity.environment.machineName</td>
-                    <td>@masterEntity.environment.domainName</td>
-                    <td>@masterEntity.environment.userName</td>
-                    <td>@masterEntity.environment.osVersion</td>
-                    <td>@masterEntity.environment.logTime.ToString()</td>
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.machineName</td>
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.domainName</td>
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.userName</td>
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.osVersion</td>
+                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.logTime.ToString()</td>
                     @if (masterEntity.environment.hasIis)
                     { 
                         <td>Yes</td>
@@ -43,14 +44,17 @@
                         <div class="dropdown">
                             <a class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" href="#">None selected <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        <li><a href="#">Bronze</a></li>
-        <li><a href="#">Silver</a></li>
-        <li><a href="#">Gold</a></li>
+        <li><a href="#">Bronze </a></li>
+        <li><a href="#">Silver </a></li>
+        <li><a href="#">Gold </a></li>
+        <li><a href="#">Gold+ </a></li>
+        <li><a href="#">Housed </a></li>
+        <li><a href="#">No Support </a></li>
     </ul>
                         </div>
 
                     </td>
-
+                    <td>Some tag</td>
 
                 </tr>  
             }

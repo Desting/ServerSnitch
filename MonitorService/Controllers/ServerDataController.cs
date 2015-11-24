@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace MonitorService.Controllers
 {
@@ -20,13 +21,26 @@ namespace MonitorService.Controllers
 
             using (var db = new ServerDb()) 
             {
-                db.Servers.Add(content);
-                db.SaveChanges();
+
+                var old = db.Servers.AsNoTracking().Where(m => m.environment.machineName == content.environment.machineName).FirstOrDefault();
+
+                if (old != null)
+                {
+                    content.Id = old.Id;
+                    db.Servers.Attach(content);
+                    db.Entry(content).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else {
+                    db.Servers.Add(content);
+                    db.SaveChanges();
+                }
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, "OK");
         }
 
+        //[HttpPut]
         //public object Update([FromBody] MasterEntity updatedServer)
         //{
 

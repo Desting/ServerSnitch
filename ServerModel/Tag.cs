@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataExtractor.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,8 @@ namespace ServerModel
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
        public int Id { get; set; }
        public string title { get; set; }
+
+       public virtual ICollection<MasterEntity> servers { get; set; }
 
 
     }

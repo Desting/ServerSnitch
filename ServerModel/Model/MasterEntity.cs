@@ -1,4 +1,5 @@
 ﻿using DataExtractor.Model.IIS;
+using ServerModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,7 +17,13 @@ namespace DataExtractor.Model
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }
         public List<ApplicationData> applications { get; set; }
+
+
+        //New
+        //public string SLA { get; set; }
+        //public Owner owner { get; set; }
         public int cost { get; set; }
+        //public virtual ICollection<Tag> tags { get; set; }
 
         public MasterEntity()
         {
