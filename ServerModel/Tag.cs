@@ -11,12 +11,13 @@ namespace ServerModel
    public class Tag
     {
        [Key]
-       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-       public int Id { get; set; }
        public string title { get; set; }
 
        public virtual ICollection<MasterEntity> servers { get; set; }
 
-
+       public Tag(string title) 
+       {
+           this.title = title;
+       }
     }
 }

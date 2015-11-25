@@ -83,7 +83,7 @@ namespace DataExtractor.Handlers
                 BindingCollection bindings = site.Bindings;
                 List<String> bindingsList = ListBindings(bindings);
 
-                // Store the Bindings.
+                //// Store the Bindings.
                 website.bindings = bindingsList;
 
 

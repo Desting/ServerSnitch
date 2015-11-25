@@ -10,11 +10,15 @@ namespace ServerModel.Model
 {
    public class Dependency
     {
-       [Key]
-       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-       public int Id { get; set; }
+       [Key, Column(Order = 2)]
        public string name { get; set; }
 
+       [Key, ForeignKey("application"), Column(Order = 1)]
+       public string applicationId { get; set; }
+       public virtual ApplicationData application { get; set; }
+
+       [Key, ForeignKey("application"), Column(Order = 0)]
+       public string masterId { get; set; }
 
     }
 }

@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Data.Entity;
+using DataExtractor.Model.IIS;
+using ServerModel;
 
 namespace MonitorService.Controllers
 {
@@ -21,19 +23,115 @@ namespace MonitorService.Controllers
 
             using (var db = new ServerDb()) 
             {
+                // Check if the server already exists in the DB
+                var old = db.Servers.Where(m => m.Id == content.Id).Include(m => m.environment).FirstOrDefault();
 
-                var old = db.Servers.AsNoTracking().Where(m => m.environment.machineName == content.environment.machineName).FirstOrDefault();
-
+                // Save Existing Server
                 if (old != null)
                 {
-                    content.Id = old.Id;
-                    db.Servers.Attach(content);
-                    db.Entry(content).State = EntityState.Modified;
+                    db.Servers.Remove(old);
+                    content.cost = 300;
+                    content.SLA = "Bronze";
+
+                    ICollection<Tag> tags = new List<Tag>();
+                    Tag tag = new Tag("Navision");
+                    Tag tag2 = new Tag("Service One");
+                    tags.Add(tag);
+                    tags.Add(tag2);
+
+                    Owner owner = new Owner("Nizi", "Nikolaj Desting", "nizi@lala.dk");
+
+                    content.tags = tags;
+                    content.owner = owner;
+
+                    ICollection<MasterEntity> servers = new List<MasterEntity>();
+                    servers.Add(content);
+                    //db.SaveChanges();
+
+                    db.Servers.Add(content);
+                    
+
+                    //// ENVIRONMENT
+                    //old.environment.hasIis = content.environment.hasIis;
+                    //old.environment.osVersion = content.environment.osVersion;
+                    //old.environment.userName = content.environment.userName;
+                    //old.environment.logTime = content.environment.logTime;
+                    //old.environment.domainName = content.environment.domainName;
+
+                    //// IIS
+                    //old.iis.IISVersion = content.iis.IISVersion;
+
+                    ////List<Website> updatedSites = new List<Website>();
+                    //foreach (var site in content.iis.websites) 
+                    //{
+                    //    // Check if the site already exists for this server
+                    //    var existingSite = old.iis.websites.Where(m => m.siteName == site.siteName).FirstOrDefault();
+
+                    //    // Save Existing Site
+                    //    if (existingSite != null)
+                    //    {
+                    //        existingSite.siteName = site.siteName;
+                    //        existingSite.state = site.state;
+                    //        existingSite.parentPool = site.parentPool;
+                    //        foreach (var pool in site.applicationPools) 
+                    //        {
+                    //            var existingPool = existingSite.applicationPools.Where(p => p.Id == pool.Id).FirstOrDefault();
+
+                    //            // Save Existing Pool
+                    //            if (existingPool != null)
+                    //            {
+                    //                existingPool.poolName = pool.poolName;
+                    //            }
+                    //            // Save New Pool
+                    //            else 
+                    //            {
+                    //                existingSite.applicationPools.Add(existingPool);
+                    //            }
+                    //        }
+                    //    }
+                            // Save New Site
+                    //    else 
+                    //    {
+                    //        old.iis.websites.Add(existingSite);
+                    //    }
+                    //}
+
+                    //// SERVICES
+                    //foreach (var application in content.applications)
+                    //{
+                    //    // Check if the service already exists for this server
+                    //    var existingApp = old.applications.Where(a => a.systemName == application.systemName).FirstOrDefault();
+
+                    //    // Save Existing Application/Service
+                    //    if (existingApp != null)
+                    //    {
+                    //        existingApp.displayName = application.displayName;
+                    //        existingApp.description = application.description;
+                    //        existingApp.logon = application.logon;
+                    //        existingApp.status = application.status;
+                    //        existingApp.type = application.type;
+                    //    }
+                    //    else 
+                    //    {
+                    //        old.applications.Add(existingApp);
+                    //    }
+                    //}
+
+                    //db.Servers.Attach(content);
+                    //db.Entry(content).State = EntityState.Modified;
                     db.SaveChanges();
                 }
+                    // Save New Server
                 else {
                     db.Servers.Add(content);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException e)
+                    {
+                        throw;
+                    } 
                 }
             }
 

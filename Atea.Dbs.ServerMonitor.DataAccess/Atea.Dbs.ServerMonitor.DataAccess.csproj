@@ -50,6 +50,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServerDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

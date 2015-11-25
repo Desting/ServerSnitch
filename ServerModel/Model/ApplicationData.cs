@@ -10,11 +10,13 @@ namespace DataExtractor.Model
 {
     public class ApplicationData
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string displayName { get; set; }
+        [Key, Column(Order=1)]
         public string systemName { get; set; }
+
+        [Key, ForeignKey("master"), Column(Order=0)]
+        public string masterId { get; set; }
+        public virtual MasterEntity master { get; set; }
+        public string displayName { get; set; }
         public string logon { get; set; }
         public string description { get; set; }
         public string type { get; set; }

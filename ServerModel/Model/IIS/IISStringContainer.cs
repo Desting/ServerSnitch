@@ -13,7 +13,7 @@ namespace DataExtractor.Model.IIS
         public List<Website> websites { get; set; }
 
         [Key, ForeignKey("master")]
-        public int masterId { get; set; }
+        public string masterId { get; set; }
         public virtual MasterEntity master { get; set; }
 
 

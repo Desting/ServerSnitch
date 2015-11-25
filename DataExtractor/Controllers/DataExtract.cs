@@ -81,6 +81,7 @@ namespace DataExtractor.Controllers
 
             // Save Environment to MasterEntity
             dataStorage.environment = environment;
+            dataStorage.Id = environment.machineName;
 
             // IIS:
             if (environment.hasIis)

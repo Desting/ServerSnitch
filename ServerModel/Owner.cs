@@ -10,20 +10,18 @@ namespace ServerModel
     public class Owner
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string name { get; set; }
-        public string initials { get; set; }
         public string email { get; set; }
 
         public Owner() 
         {
         }
 
-        public Owner(string name, string initials, string email)
+        public Owner(string Id, string name, string email)
         {
             this.name = name;
-            this.initials = initials;
+            this.Id = Id;
             this.email = email;
         }
 

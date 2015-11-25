@@ -11,19 +11,21 @@ namespace DataExtractor.Model
 {
     public class MasterEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }
         public List<ApplicationData> applications { get; set; }
-
+        
+        public string Id { get; set; }
 
         //New
-        //public string SLA { get; set; }
-        //public Owner owner { get; set; }
+        public string SLA { get; set; }
         public int cost { get; set; }
-        //public virtual ICollection<Tag> tags { get; set; }
+
+        [Key, ForeignKey("owner")]
+        public string ownerId { get; set; }
+        public virtual Owner owner { get; set; }
+
+        public virtual ICollection<Tag> tags { get; set; }
 
         public MasterEntity()
         {
