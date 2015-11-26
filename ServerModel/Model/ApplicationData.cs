@@ -16,6 +16,7 @@ namespace DataExtractor.Model
         [Key, ForeignKey("master"), Column(Order=0)]
         public string masterId { get; set; }
         public virtual MasterEntity master { get; set; }
+
         public string displayName { get; set; }
         public string logon { get; set; }
         public string description { get; set; }

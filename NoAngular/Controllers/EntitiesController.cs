@@ -12,7 +12,7 @@ namespace NoAngular.Controllers
     public class EntitiesController : Controller
     {
         //
-        // GET: /Api/
+        // GET: /Entities/
         [HttpGet]
         public ActionResult Index()
         {
@@ -29,47 +29,49 @@ namespace NoAngular.Controllers
             }
         }
 
-        public ActionResult Details(int id) 
-        {
-            using (var db = new ServerDb())
-            {
-                var result = db.Servers
-                    .Include(m => m.applications)
-                    .Include(m => m.iis)
-                    .Include("iis.websites.applicationPools")
+        //public ActionResult Details(int id) 
+        //{
+        //    using (var db = new ServerDb())
+        //    {
+        //        var result = db.Servers
+        //            .Include(m => m.applications)
+        //            .Include(m => m.iis)
+        //            .Include("iis.websites.applicationPools")
 
-                    .Where(m => m.Id == id)
-                    .FirstOrDefault();
-                return View(result);
-            }
-        }
+        //            .Where(m => m.Id == id)
+        //            .FirstOrDefault();
+        //        return View(result);
+        //    }
+        //}
 
 
-        // Currently not used
-        public ActionResult Services(int id)
-        {
-            using (var db = new ServerDb())
-            {
-                var result = db.Servers
-                    .Include(m => m.applications)
-                    .Include("applications.dependencies")
-                    .Where(m => m.Id == id)
-                    .FirstOrDefault();
-                return PartialView(result);
-            }
-        }
+        //// Currently not used
+        //public ActionResult Services(int id)
+        //{
+        //    using (var db = new ServerDb())
+        //    {
+        //        var result = db.Servers
+        //            .Include(m => m.applications)
+        //            .Include("applications.dependencies")
+        //            .Where(m => m.Id == id)
+        //            .FirstOrDefault();
+        //        return PartialView(result);
+        //    }
+        //}
 
-        public ActionResult Iis(int id)
-        {
-            using (var db = new ServerDb())
-            {
-                var result = db.Servers
-                    .Include(m => m.iis)
-                    .Include("iis.websites")
-                    .Where(m => m.Id == id)
-                    .FirstOrDefault();
-                return PartialView(result);
-            }
-        }
+        //public ActionResult Iis(int id)
+        //{
+        //    using (var db = new ServerDb())
+        //    {
+        //        var result = db.Servers
+        //            .Include(m => m.iis)
+        //            .Include("iis.websites")
+        //            .Where(m => m.Id == id)
+        //            .FirstOrDefault();
+        //        return PartialView(result);
+        //    }
+        //}
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DataExtractor.Model;
 using DataExtractor.Model.IIS;
+using ServerModel;
 using ServerModel.Model;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,8 @@ namespace Atea.Dbs.ServerMonitor.DataAccess
         }
 
         public DbSet<MasterEntity> Servers { get; set; }
-        public DbSet<ServerModel.Owner> Owners { get; set; }
-        public DbSet<ServerModel.Tag> Tags { get; set; }
+        public DbSet<Owner> Owners { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,7 +34,16 @@ namespace Atea.Dbs.ServerMonitor.DataAccess
 
             modelBuilder.Entity<IISStringContainer>()
                 .HasMany(i => i.websites)
-                .WithRequired();
+                .WithRequired()
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Tag>()
+                .HasOptional(t => t.servers)
+                .WithMany();
+
+            modelBuilder.Entity<Owner>()
+                .HasOptional(t => t.servers)
+                .WithMany();
 
             //modelBuilder.Entity<Dependency>()
             //    .HasRequired(m => m.application)

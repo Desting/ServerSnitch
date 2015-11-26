@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataExtractor.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,9 @@ namespace ServerModel
         public string Id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
+
+        public virtual ICollection<MasterEntity> servers { get; set; }
+
 
         public Owner() 
         {

@@ -9,12 +9,19 @@ namespace DataExtractor.Model.IIS
 {
    public class ApplicationPoolCustom
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column(Order = 2)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string poolName { get; set; }
         public List<string> directories { get; set; }
 
+
+        [Key, ForeignKey("site"), Column(Order = 1)]
+        public string siteName { get; set; }
+        public virtual Website site { get; set; }
+
+        //[Key, ForeignKey("site"), Column(Order = 0)]
+        //public string masterId { get; set; }
 
         public ApplicationPoolCustom()
         {

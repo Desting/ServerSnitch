@@ -37,9 +37,13 @@ namespace DataExtractor.Controllers
            JSONParser parser = new JSONParser();
            string json = parser.SerializeObject(dataStorage);
 
+           //System.IO.File.WriteAllText(@"C:\Users\extadmnizi\Desktop\json.txt", json);
+
+
            //Post Data
            httpHandler.PostMasterEntity(uri, json);
-           //PostJson(json);
+
+
        }
 
 

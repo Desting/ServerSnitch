@@ -9,10 +9,11 @@ namespace DataExtractor.Model.IIS
 {
     public class IISStringContainer
     {
+        
         public string IISVersion { get; set; }
         public List<Website> websites { get; set; }
 
-        [Key, ForeignKey("master")]
+        [Key, ForeignKey("master"), Column(Order = 0)]
         public string masterId { get; set; }
         public virtual MasterEntity master { get; set; }
 

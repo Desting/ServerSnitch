@@ -24,7 +24,10 @@ namespace MonitorService.Controllers
             using (var db = new ServerDb()) 
             {
                 // Check if the server already exists in the DB
-                var old = db.Servers.Where(m => m.Id == content.Id).Include(m => m.environment).FirstOrDefault();
+                var old = db.Servers.Where(m => m.Id == content.Id)
+                    .Include(m => m.environment)
+                    .Include(m => m.iis)
+                    .FirstOrDefault();
 
                 // Save Existing Server
                 if (old != null)
@@ -39,10 +42,11 @@ namespace MonitorService.Controllers
                     tags.Add(tag);
                     tags.Add(tag2);
 
-                    Owner owner = new Owner("Nizi", "Nikolaj Desting", "nizi@lala.dk");
+                    //Owner owner = new Owner("Nizi", "Nikolaj Desting", "nizi@lala.dk");
 
-                    content.tags = tags;
-                    content.owner = owner;
+
+                    //content.tags = tags;
+                    //content.owner = owner;
 
                     ICollection<MasterEntity> servers = new List<MasterEntity>();
                     servers.Add(content);
