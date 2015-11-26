@@ -15,14 +15,14 @@ namespace NoAngular.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Owners()
         {
             ViewBag.Message = "This is a very nice description page of our ServerMonitor application";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Tags()
         {
             ViewBag.Message = "My information";
 

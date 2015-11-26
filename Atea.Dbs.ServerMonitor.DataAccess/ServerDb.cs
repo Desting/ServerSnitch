@@ -37,11 +37,15 @@ namespace Atea.Dbs.ServerMonitor.DataAccess
                 .WithRequired()
                 .WillCascadeOnDelete(true);
 
+
+
             modelBuilder.Entity<Tag>()
+                .HasKey(m => m.title)
                 .HasOptional(t => t.servers)
                 .WithMany();
 
             modelBuilder.Entity<Owner>()
+                .HasKey(m => m.Id)
                 .HasOptional(t => t.servers)
                 .WithMany();
 

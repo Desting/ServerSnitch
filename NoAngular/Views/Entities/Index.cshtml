@@ -10,7 +10,6 @@
     <table class="display" id="serverTable">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Machine Name</th>
                 <th>Domain</th>
                 <th>Owner</th>
@@ -25,20 +24,27 @@
         <tbody id="fbody">
             @foreach (var masterEntity in Model)
             {
+                
                 <tr class="clickable-row"  >
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.Id</td>
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.machineName</td>
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.domainName</td>
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.userName</td>
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.osVersion</td>
-                    <td onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.logTime.ToString()</td>
-                    @if (masterEntity.environment.hasIis)
-                    { 
-                        <td>Yes</td>
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.machineName</td>
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.domainName</td>
+                    @if (masterEntity.owner != null)
+                    {
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.owner.Id</td>
                     }
                     else
                     {
-                        <td>No</td>
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">None registered</td>
+                    }
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.osVersion</td>
+                    <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">@masterEntity.environment.logTime.ToString()</td>
+                    @if (masterEntity.environment.hasIis)
+                    { 
+                        <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">Yes</td>
+                    }
+                    else
+                    {
+                        <td class="single-server" onclick="window.location='/Entities/Details/@masterEntity.Id'">No</td>
                     }
                     <td>
                         <div class="dropdown">

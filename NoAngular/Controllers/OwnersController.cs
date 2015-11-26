@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace NoAngular.Controllers
 {
-    public class OwnerController : Controller
+    public class OwnersController : Controller
     {
         //
-        // GET: /Owner/
+        // GET: /Owners/
 
         public ActionResult Index()
         {

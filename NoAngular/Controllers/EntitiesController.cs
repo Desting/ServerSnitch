@@ -20,6 +20,8 @@ namespace NoAngular.Controllers
             {
                 var result = db.Servers
                     .Include(m => m.applications)
+                    .Include(m => m.environment)
+                    .Include(m => m.owner)
                     .Include("applications.dependencies")
                     .OrderByDescending(m => m.Id)
                     .Skip(0)
@@ -29,20 +31,21 @@ namespace NoAngular.Controllers
             }
         }
 
-        //public ActionResult Details(int id) 
-        //{
-        //    using (var db = new ServerDb())
-        //    {
-        //        var result = db.Servers
-        //            .Include(m => m.applications)
-        //            .Include(m => m.iis)
-        //            .Include("iis.websites.applicationPools")
+        public ActionResult Details(string id)
+        {
+            using (var db = new ServerDb())
+            {
+                var result = db.Servers
+                    .Include(m => m.environment)
+                    .Include(m => m.applications)
+                    .Include(m => m.iis)
+                    .Include("iis.websites.applicationPools")
 
-        //            .Where(m => m.Id == id)
-        //            .FirstOrDefault();
-        //        return View(result);
-        //    }
-        //}
+                    .Where(m => m.Id == id)
+                    .FirstOrDefault();
+                return View(result);
+            }
+        }
 
 
         //// Currently not used

@@ -1,6 +1,11 @@
 ﻿#clickable{
     cursor: pointer;
 }
+
+.single-server {
+    cursor: pointer;
+}
+
 .hiddenRow {
     padding: 0 !important;
 }

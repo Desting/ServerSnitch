@@ -50,79 +50,11 @@ namespace MonitorService.Controllers
 
                     ICollection<MasterEntity> servers = new List<MasterEntity>();
                     servers.Add(content);
-                    //db.SaveChanges();
+
+
+
 
                     db.Servers.Add(content);
-                    
-
-                    //// ENVIRONMENT
-                    //old.environment.hasIis = content.environment.hasIis;
-                    //old.environment.osVersion = content.environment.osVersion;
-                    //old.environment.userName = content.environment.userName;
-                    //old.environment.logTime = content.environment.logTime;
-                    //old.environment.domainName = content.environment.domainName;
-
-                    //// IIS
-                    //old.iis.IISVersion = content.iis.IISVersion;
-
-                    ////List<Website> updatedSites = new List<Website>();
-                    //foreach (var site in content.iis.websites) 
-                    //{
-                    //    // Check if the site already exists for this server
-                    //    var existingSite = old.iis.websites.Where(m => m.siteName == site.siteName).FirstOrDefault();
-
-                    //    // Save Existing Site
-                    //    if (existingSite != null)
-                    //    {
-                    //        existingSite.siteName = site.siteName;
-                    //        existingSite.state = site.state;
-                    //        existingSite.parentPool = site.parentPool;
-                    //        foreach (var pool in site.applicationPools) 
-                    //        {
-                    //            var existingPool = existingSite.applicationPools.Where(p => p.Id == pool.Id).FirstOrDefault();
-
-                    //            // Save Existing Pool
-                    //            if (existingPool != null)
-                    //            {
-                    //                existingPool.poolName = pool.poolName;
-                    //            }
-                    //            // Save New Pool
-                    //            else 
-                    //            {
-                    //                existingSite.applicationPools.Add(existingPool);
-                    //            }
-                    //        }
-                    //    }
-                            // Save New Site
-                    //    else 
-                    //    {
-                    //        old.iis.websites.Add(existingSite);
-                    //    }
-                    //}
-
-                    //// SERVICES
-                    //foreach (var application in content.applications)
-                    //{
-                    //    // Check if the service already exists for this server
-                    //    var existingApp = old.applications.Where(a => a.systemName == application.systemName).FirstOrDefault();
-
-                    //    // Save Existing Application/Service
-                    //    if (existingApp != null)
-                    //    {
-                    //        existingApp.displayName = application.displayName;
-                    //        existingApp.description = application.description;
-                    //        existingApp.logon = application.logon;
-                    //        existingApp.status = application.status;
-                    //        existingApp.type = application.type;
-                    //    }
-                    //    else 
-                    //    {
-                    //        old.applications.Add(existingApp);
-                    //    }
-                    //}
-
-                    //db.Servers.Attach(content);
-                    //db.Entry(content).State = EntityState.Modified;
                     db.SaveChanges();
                 }
                     // Save New Server
@@ -142,24 +74,6 @@ namespace MonitorService.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "OK");
         }
 
-        //[HttpPut]
-        //public object Update([FromBody] MasterEntity updatedServer)
-        //{
-
-        //    using (var db = new ServerDb())
-        //    {
-        //        var original = db.Servers.Find(updatedServer.Id);
-
-        //        if (original != null)
-        //        {
-        //            db.Entry(original).CurrentValues.SetValues(updatedServer);
-        //            db.SaveChanges();
-        //        }
-        //    }
-
-        //    return Request.CreateResponse(HttpStatusCode.OK, "OK");
-
-        //}
 
     }
 
