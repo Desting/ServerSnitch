@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ServerModel.Tag>
+﻿
 
 @{
     ViewBag.Title = "Tags";
@@ -15,26 +15,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" id="tagDiv">
 
-                        <h3>Tags</h3>
-            <table class="table table-hover"  id="serviceTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody id="fbody">
-                                        @foreach (var tag in Model)
-                                        { 
-                                            <tr >
-                                            <td>@tag.title</td>
-
-                                        </tr>
-                                        }
-                                    </tbody>
-                                </table>
+                        
 
         </div>
 
@@ -71,5 +54,22 @@
         });
 
         e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        $.get("/Tags/GetTags", function (data) {
+            $("#tagDiv").html(data);
+
+        });
+    }
+
+    );
+</script>
+
+<script>
+    $(document).ready(function () {
+        $.get("/Tags/GetTags", function (data) {
+            $("#tagDiv").html(data);
+
+        });
     });
+
 </script>

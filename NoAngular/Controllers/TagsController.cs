@@ -17,14 +17,22 @@ namespace NoAngular.Controllers
 
         public ActionResult Index()
         {
+
+            return View();
+
+        }
+
+        public ActionResult GetTags() 
+        {
+
             using (var db = new ServerDb())
             {
                 var result = db.Tags
                     .ToList();
-                return View(result);
+
+                return PartialView(result);
+
             }
-
-
         }
 
         public ActionResult CreateNewTag(string title)
