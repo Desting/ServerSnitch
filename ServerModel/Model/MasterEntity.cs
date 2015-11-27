@@ -25,7 +25,7 @@ namespace DataExtractor.Model
         public string ownerId { get; set; }
         public virtual Owner owner { get; set; }
 
-        public virtual ICollection<Tag> tags { get; set; }
+        public virtual List<Tag> tags { get; set; }
 
         public MasterEntity()
         {

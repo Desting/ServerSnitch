@@ -55,6 +55,8 @@ namespace MonitorService.Controllers
 
 
                     db.Servers.Add(content);
+                    db.Tags.Add(tag);
+                    db.Tags.Add(tag2);
                     db.SaveChanges();
                 }
                     // Save New Server

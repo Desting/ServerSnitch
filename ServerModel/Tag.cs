@@ -13,7 +13,12 @@ namespace ServerModel
        [Key]
        public string title { get; set; }
 
-       public virtual ICollection<MasterEntity> servers { get; set; }
+       public virtual List<MasterEntity> servers { get; set; }
+
+       public Tag() 
+       {
+       
+       }
 
        public Tag(string title) 
        {

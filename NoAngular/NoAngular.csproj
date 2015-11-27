@@ -477,6 +477,7 @@
     <Content Include="Views\Entities\Iis.cshtml" />
     <Content Include="Views\Owners\Index.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
+    <Content Include="Views\Tags\CreateNewTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
