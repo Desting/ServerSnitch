@@ -13,7 +13,7 @@ namespace DataExtractor.Model
     {
         public EnvironmentData environment { get; set; }
         public IISStringContainer iis { get; set; }
-        public List<ApplicationData> applications { get; set; }
+        public List<ServiceData> services { get; set; }
         
         public string Id { get; set; }
 
@@ -31,11 +31,11 @@ namespace DataExtractor.Model
         {
         }
 
-        public MasterEntity(EnvironmentData environment, IISStringContainer iis, List<ApplicationData> applications)
+        public MasterEntity(EnvironmentData environment, IISStringContainer iis, List<ServiceData> services)
         {
             this.environment = environment;
             this.iis = iis;
-            this.applications = applications;
+            this.services = services;
 
         }
 

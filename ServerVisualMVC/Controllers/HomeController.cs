@@ -25,7 +25,7 @@ namespace ServerVisualMVC.Controllers
             using (var db = new ServerDb())
             {
                 var result = db.Servers
-                    .Include(m => m.applications)
+                    .Include(m => m.services)
                     .Include("applications.dependencies")
                     .ToList();
 
@@ -39,7 +39,7 @@ namespace ServerVisualMVC.Controllers
             using (var db = new ServerDb())
             {
                 var result = db.Servers
-                    .Include(m => m.applications)
+                    .Include(m => m.services)
                     .Include("applications.dependencies")
                     .ToList();
 

@@ -62,7 +62,7 @@
     <Compile Include="Model\IIS\Temp\IISData.cs" />
     <Compile Include="Model\IIS\Website.cs" />
     <Compile Include="Model\MasterEntity.cs" />
-    <Compile Include="Model\ApplicationData.cs" />
+    <Compile Include="Model\ServiceData.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tag.cs" />

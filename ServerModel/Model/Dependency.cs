@@ -15,7 +15,7 @@ namespace ServerModel.Model
 
        [Key, ForeignKey("application"), Column(Order = 1)]
        public string applicationId { get; set; }
-       public virtual ApplicationData application { get; set; }
+       public virtual ServiceData application { get; set; }
 
        [Key, ForeignKey("application"), Column(Order = 0)]
        public string masterId { get; set; }

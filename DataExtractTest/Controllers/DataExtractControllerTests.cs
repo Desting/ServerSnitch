@@ -86,14 +86,14 @@ namespace DataExtractTest.Controllers
         {
             //Assemble
             var sut = Setup();
-            var servList = new List<ApplicationData>();
+            var servList = new List<ServiceData>();
             servHandlerMoq.Setup(m => m.ListServices()).Returns(servList);
 
             //Act
             MasterEntity result = sut.GetData();
 
             //Assert
-            Assert.IsNotNull(result.applications);
+            Assert.IsNotNull(result.services);
 
         }
 

@@ -19,7 +19,7 @@ namespace NoAngular.Controllers
             using (var db = new ServerDb())
             {
                 var result = db.Servers
-                    .Include(m => m.applications)
+                    .Include(m => m.services)
                     .Include(m => m.environment)
                     .Include(m => m.owner)
                     .Include("applications.dependencies")
@@ -37,7 +37,7 @@ namespace NoAngular.Controllers
             {
                 var result = db.Servers
                     .Include(m => m.environment)
-                    .Include(m => m.applications)
+                    .Include(m => m.services)
                     .Include(m => m.iis)
                     .Include("iis.websites.applicationPools")
 

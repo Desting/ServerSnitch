@@ -41,33 +41,6 @@ namespace DataExtractor.Controllers
         }
 
 
-        //public void ExtractAndSerializeData()
-        //{
-        //    // Initialize MasterEntity to hold data
-        //    MasterEntity dataStorage = GetData();
-
-
-        //    // Serialize to JSON
-        //    JSONParser parser = new JSONParser();
-        //    string json = parser.SerializeObject(dataStorage);
-
-        //    //Post Data
-        //    PostController postCtrl = new PostController();
-
-        //    postCtrl.PostJson(uri, json);
-        //    //PostJson(json);
-
-        //}
-
-        //private void PostJson(string json)
-        //{
-        //    // HTTP POST
-        //    HTTPHandler http = new HTTPHandler();
-
-        //    // this is where we will send it
-        //    http.PostMasterEntity(uri, json);
-        //}
-
         public MasterEntity GetData()
         {
             MasterEntity dataStorage = new MasterEntity();
@@ -77,7 +50,7 @@ namespace DataExtractor.Controllers
 
             // Check for IIS:
             Version iisVersion = iisHandler.GetIisVersion();
-            environment.hasIis = iisVersion !=null ;
+            environment.hasIis = iisVersion != null;
 
             // Save Environment to MasterEntity
             dataStorage.environment = environment;
@@ -95,7 +68,7 @@ namespace DataExtractor.Controllers
             }
 
             // Applications:
-            dataStorage.applications = serHandler.ListServices(); // Test!!
+            dataStorage.services = serHandler.ListServices(); // Test!!
 
             return dataStorage;
         }

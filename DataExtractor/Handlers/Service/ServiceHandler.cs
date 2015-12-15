@@ -13,15 +13,15 @@ namespace DataExtractor.Handlers
     public class ServiceHandler : DataExtractor.Handlers.IServiceHandler
     {
 
-        public List<ApplicationData> ListServices() 
+        public List<ServiceData> ListServices() 
         {
-            List<ApplicationData> serviceList = new List<ApplicationData>();
+            List<ServiceData> serviceList = new List<ServiceData>();
 
 
             ServiceController[] services = ServiceController.GetServices();
             foreach (var service in services)
             {
-                ApplicationData serviceData = new ApplicationData();
+                ServiceData serviceData = new ServiceData();
 
                 serviceData.displayName = service.DisplayName;
                 serviceData.systemName = service.ServiceName;

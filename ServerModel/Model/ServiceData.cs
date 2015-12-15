@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataExtractor.Model
 {
-    public class ApplicationData
+    public class ServiceData
     {
         [Key, Column(Order=1)]
         public string systemName { get; set; }
