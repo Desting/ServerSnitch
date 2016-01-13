@@ -22,7 +22,7 @@ namespace NoAngular.Controllers
                     .Include(m => m.services)
                     .Include(m => m.environment)
                     .Include(m => m.owner)
-                    .Include("applications.dependencies")
+                    .Include("services.dependencies")
                     .OrderByDescending(m => m.Id)
                     .Skip(0)
                     .Take(50)
@@ -47,33 +47,6 @@ namespace NoAngular.Controllers
             }
         }
 
-
-        //// Currently not used
-        //public ActionResult Services(int id)
-        //{
-        //    using (var db = new ServerDb())
-        //    {
-        //        var result = db.Servers
-        //            .Include(m => m.applications)
-        //            .Include("applications.dependencies")
-        //            .Where(m => m.Id == id)
-        //            .FirstOrDefault();
-        //        return PartialView(result);
-        //    }
-        //}
-
-        //public ActionResult Iis(int id)
-        //{
-        //    using (var db = new ServerDb())
-        //    {
-        //        var result = db.Servers
-        //            .Include(m => m.iis)
-        //            .Include("iis.websites")
-        //            .Where(m => m.Id == id)
-        //            .FirstOrDefault();
-        //        return PartialView(result);
-        //    }
-        //}
 
 
     }

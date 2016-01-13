@@ -5,55 +5,53 @@
     ViewBag.Title = "Services";
 }
 <br />
-<div class ="col-md-12">
+<div class="col-md-12">
 
-    <table class="table table-hover"  id="serviceTable">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Display Name</th>
-                                            <th>System Name</th>
-                                            <th>Authentication</th>
-                                            <th>Type</th>
-                                            <th>Status</th>
+    <table class="table table-hover" id="serviceTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Display Name</th>
+                <th>System Name</th>
+                <th>Authentication</th>
+                <th>Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="fbody">
+            @for (int i = 0; i < Model.services.Count; i++)
+            { 
+                <tr  data-id="i"  data-content="@Model.services[i].description">
+                    <td>@(i + 1)</td>
+                    <td>@Model.services[i].displayName</td>
+                    <td>@Model.services[i].systemName</td>
+                    <td>@Model.services[i].logon</td>
+                    <td>@Model.services[i].type</td>
+                    <td>@Model.services[i].status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody id="fbody">
-                                        @for (int i = 0; i < Model.applications.Count; i++ )
-                                        { 
-                                            <tr  data-id="i"  data-content="@Model.applications[i].description">
-                                            <td>@(i+1)</td>
-                                            <td>@Model.applications[i].displayName</td>
-                                            <td>@Model.applications[i].systemName</td>
-                                            <td>@Model.applications[i].logon</td>
-                                            <td>@Model.applications[i].type</td>
-                                            <td>@Model.applications[i].status</td>
+</div>
 
-                                        </tr>
-                                        }
-                                    </tbody>
-                                </table>
- 
-    </div>
-
-      <!-- Modal -->
+<!-- Modal -->
 <div id="serviceModal" class="modal fade modal-sm" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Description</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Description</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
-
-  </div>
 </div>
 
 

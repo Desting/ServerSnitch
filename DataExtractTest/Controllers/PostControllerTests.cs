@@ -33,13 +33,15 @@ namespace DataExtractTest.Controllers
         [TestMethod]
         public void ExtractAndSerializeData_PostsCorrectJson()
         {
+            // Assemble
             var sut = Setup();
-
             JSONParser parser = new JSONParser();
-            string json = parser.SerializeObject(entity);
 
+            // Act
+            string json = parser.SerializeObject(entity);
             sut.ExtractAndSerializeData();
 
+            //Verify
             httpHandlerMoq.Verify(m => m.PostMasterEntity("", json), "PostMasterEntity was not called");
         }
     }

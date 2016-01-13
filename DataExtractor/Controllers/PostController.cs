@@ -26,12 +26,10 @@ namespace DataExtractor.Controllers
            this.dataExtractor = dataExtractor;
        }
 
-       //Test this
        public void ExtractAndSerializeData()
        {
            // Initialize MasterEntity to hold data
            MasterEntity dataStorage = dataExtractor.GetData();
-
 
            // Serialize to JSON
            JSONParser parser = new JSONParser();
@@ -39,11 +37,8 @@ namespace DataExtractor.Controllers
 
            //System.IO.File.WriteAllText(@"C:\Users\extadmnizi\Desktop\json.txt", json);
 
-
            //Post Data
            httpHandler.PostMasterEntity(uri, json);
-
-
        }
 
 

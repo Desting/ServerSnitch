@@ -10,16 +10,17 @@ namespace DataExtractor
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+/// The main entry point for the application.
         static void Main()
         {
+// Read the uri that is set in the App.config file. ("http://localhost:62273/api/ServerData")
             var uri = System.Configuration.ConfigurationManager.AppSettings["serviceURL"];
-            PostController control = new PostController(uri);
-            control.ExtractAndSerializeData();
 
-            
+// Instantiate the PostController with proper uri
+            PostController control = new PostController(uri);
+
+// The PostController is the controller of the program, delegating tasks to the handlers
+            control.ExtractAndSerializeData();
         }
     }
 }

@@ -22,10 +22,10 @@ namespace DataExtractor.Handlers
             request.ProtocolVersion = HttpVersion.Version10;
             request.Method = "POST";
 
-            // turn our request string into a byte stream
+            // turn request string into a byte stream
             byte[] postBytes = Encoding.ASCII.GetBytes(json);
 
-            // this is important - make sure you specify type this way
+            // Content Type is an insurance for the server of what "language" you send it
             request.ContentType = "application/json; charset=utf-8";
             request.ContentLength = postBytes.Length;
             Stream requestStream = request.GetRequestStream();
@@ -34,7 +34,7 @@ namespace DataExtractor.Handlers
             requestStream.Write(postBytes, 0, postBytes.Length);
             requestStream.Close();
 
-            // grab te response and print it out to the console along with the status code
+            // grab the response and print it out to the console along with the status code
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Console.WriteLine(new StreamReader(response.GetResponseStream()).ReadToEnd());
             Console.WriteLine(response.StatusCode);

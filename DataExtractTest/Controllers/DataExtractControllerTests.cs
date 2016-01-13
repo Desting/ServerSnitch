@@ -37,8 +37,11 @@ namespace DataExtractTest.Controllers
             //Act
             MasterEntity result = sut.GetData();
 
+            Console.Write(result.GetType());
+
             //Assert
             Assert.IsNotNull(result);
+            Assert.IsTrue(result.environment is EnvironmentData);
         }
 
 
@@ -55,10 +58,10 @@ namespace DataExtractTest.Controllers
 
             //Assert
             Assert.IsNotNull(result.iis);
+            Assert.IsTrue(result.iis is IISStringContainer);
         }
 
 
-        // --------------------------- Nikolaj alene ---------------------------
 
         [TestMethod]
         public void GetData_HasIIS_CallsCreateIisDataObject()
@@ -94,7 +97,7 @@ namespace DataExtractTest.Controllers
 
             //Assert
             Assert.IsNotNull(result.services);
-
+            Assert.IsTrue(result.services is List<ServiceData>);
         }
 
 

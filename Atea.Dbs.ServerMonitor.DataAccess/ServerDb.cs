@@ -23,6 +23,7 @@ namespace Atea.Dbs.ServerMonitor.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            // You use the modelBuilder to map relations between objects in the DB
             modelBuilder.Entity<MasterEntity>()
                 .HasOptional<IISStringContainer>(s => s.iis);
 
@@ -49,10 +50,6 @@ namespace Atea.Dbs.ServerMonitor.DataAccess
                 .HasOptional(t => t.servers)
                 .WithMany();
 
-            //modelBuilder.Entity<Dependency>()
-            //    .HasRequired(m => m.application)
-            //    .WithMany(m => m.dependencies)
-            //    .HasForeignKey(m => new {m.masterId, m.applicationId});
 
             base.OnModelCreating(modelBuilder);
         }

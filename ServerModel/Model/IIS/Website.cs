@@ -20,10 +20,6 @@ namespace DataExtractor.Model.IIS
         public string masterId { get; set; }
         public virtual IISStringContainer iis { get; set; }
 
-        //[Key, ForeignKey("master"), Column(Order = 0)]
-        //public string masterId { get; set; }
-        //public virtual MasterEntity master { get; set; }
-
         
 
         public Website()

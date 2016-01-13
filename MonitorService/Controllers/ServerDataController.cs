@@ -33,30 +33,9 @@ namespace MonitorService.Controllers
                 if (old != null)
                 {
                     db.Servers.Remove(old);
-                    content.cost = 300;
-                    content.SLA = "Bronze";
-
-                    ICollection<Tag> tags = new List<Tag>();
-                    Tag tag = new Tag("Navision");
-                    Tag tag2 = new Tag("Service One");
-                    tags.Add(tag);
-                    tags.Add(tag2);
-
-                    //Owner owner = new Owner("Nizi", "Nikolaj Desting", "nizi@lala.dk");
-
-
-                    //content.tags = tags;
-                    //content.owner = owner;
-
-                    ICollection<MasterEntity> servers = new List<MasterEntity>();
-                    servers.Add(content);
-
-
-
-
+                    
                     db.Servers.Add(content);
-                    db.Tags.Add(tag);
-                    db.Tags.Add(tag2);
+                    
                     db.SaveChanges();
                 }
                     // Save New Server

@@ -39,8 +39,7 @@ namespace DataExtractor.Controllers
             this.iisHandler = iisHandler;
             this.serHandler = serHandler;
         }
-
-
+    
         public MasterEntity GetData()
         {
             MasterEntity dataStorage = new MasterEntity();
@@ -67,16 +66,11 @@ namespace DataExtractor.Controllers
 
             }
 
-            // Applications:
-            dataStorage.services = serHandler.ListServices(); // Test!!
+            // Services:
+            dataStorage.services = serHandler.ListServices(); 
 
             return dataStorage;
         }
-
-
-
-
         }
-
     }
 
